@@ -1,0 +1,61 @@
+import { css } from '@emotion/react';
+import { Colors } from './colors';
+import { Fonts, FontSize } from './fonts';
+import { Theme } from '../types';
+
+export const TextColor = {
+	[Theme.Dark]: css({
+		color: Colors.gray1,
+	}),
+	[Theme.Light]: css({
+		color: Colors.red7,
+	}),
+};
+
+export const BackgroundColor = {
+	[Theme.Dark]: css({
+		backgroundColor: Colors.gray7,
+	}),
+	[Theme.Light]: {
+		backgroundColor: Colors.gray0,
+	},
+};
+
+export const OverlayBackground = {
+	[Theme.Dark]: css({
+		backgroundColor: 'rgba(0,0,0,0.90)',
+	}),
+	[Theme.Light]: css({
+		backgroundColor: 'rgba(0,0,0,0.85)',
+	}),
+};
+
+export const GlobalStyles = {
+	title: css`
+		text-align: center;
+		font-family: ${Fonts.Norse};
+		font-weight: 700;
+		font-size: ${FontSize.xlarge};
+	`,
+	button: css`
+		font-family: ${Fonts.MedievalSharp};
+		font-size: ${FontSize.big};
+	`,
+	text: css`
+		font-family: ${Fonts.AlumniSans};
+		font-weight: 200;
+		font-size: ${FontSize.medium};
+	`,
+	comment: css`
+		font-family: ${Fonts.Norse};
+		font-size: ${FontSize.big};
+	`,
+};
+
+export enum ZIndex {
+	Back = 1,
+	Middle = 5,
+	Front = 10,
+	Overlay = 15,
+	Top = 20,
+}
