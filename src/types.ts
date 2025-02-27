@@ -27,5 +27,4 @@ export interface LanguagesState {
 export interface SavedData {
 	settings: SettingsState;
 	language: SupportedLanguages;
-	// logs: LogState;
 }

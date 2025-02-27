@@ -1,22 +1,18 @@
 import styled from '@emotion/styled';
-import { PropsWithChildren, useContext } from 'react';
 import { BackgroundColor } from '../../config';
+import { PropsWithChildren, useContext } from 'react';
 import { SettingsContext } from '../../contexts';
 import { Theme } from '../../types';
 
-export const Container = ({ children }: PropsWithChildren) => {
+export const Container = ({ children, ...props }: PropsWithChildren) => {
 	const { theme } = useContext(SettingsContext);
 
 	return (
-		<AppContainer theme={theme}>
+		<AppContainer theme={theme} {...props}>
 			{children}
 		</AppContainer>);
 };
 
 const AppContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   ${({ theme }: { theme: Theme }) => BackgroundColor[theme]}
 `;

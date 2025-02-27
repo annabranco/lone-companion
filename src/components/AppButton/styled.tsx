@@ -1,7 +1,7 @@
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Colors } from '../../config';
 import { ButtonProps } from './types';
+import { Colors } from '../../config';
+import { css } from '@emotion/react';
 
 
 const ButtonKinds = {
@@ -44,6 +44,7 @@ export const Button = styled.button<ButtonProps>`
 	font-weight: normal;
 	border-width: 1px;
 	margin: 10px;
+	cursor: pointer;
 
 	${({ kind }) => kind && ButtonKinds[kind]}
 

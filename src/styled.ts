@@ -1,9 +1,9 @@
-import { CSSObject } from '@emotion/react';
 import AlumniSans from './assets/fonts/AlumniSans.ttf';
 import AlumniSansLight from './assets/fonts/AlumniSansLight.ttf';
 import MedievalSharp from './assets/fonts/MedievalSharp.ttf';
-import NorseFont from './assets/fonts/Norse.otf';
 import NorseBoldFont from './assets/fonts/NorseBold.otf';
+import NorseFont from './assets/fonts/Norse.otf';
+import { CSSObject } from '@emotion/react';
 
 export const globalStylesDefinitions: CSSObject[] = [
   {
@@ -37,13 +37,12 @@ export const globalStylesDefinitions: CSSObject[] = [
     },
   }, {
     '#root': {
-      width: '80vw',
-      margin: '0 auto',
-      padding: '2rem',
-      textAlign: 'center',
-    },
-    'p': {
-      margin: 0,
+      height: '100vh',
+      width: '100vw',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      position: 'relative',
     },
   },
 ];

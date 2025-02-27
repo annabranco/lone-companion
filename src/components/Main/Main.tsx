@@ -1,23 +1,17 @@
 // import { Settings } from '../../features/settings';
-import { Oracle } from '../../features/oracle';
+import styled from '@emotion/styled';
 import { Container } from '../Container';
-// import {NameGenerator, NpcGenerator} from '../../features/generators';
-// import {LogDisplay} from '../../features/log';
-// import {CustomNpc} from '../../features/generators/npcs/CustomNpc';
+import { LogDisplay } from '../../features/log';
+import { Oracles } from '../../features/Oracles/Oracles';
 
-export const Main = () => {
+export const Main = () => (
+	<MainApplicationWrapper>
+		<Oracles />
+		<LogDisplay />
+	</MainApplicationWrapper>
+);
 
-	return (
-		<Container>
-			<Oracle />
-
-			{/* <NameGenerator /> */}
-
-			{/* <NpcGenerator /> */}
-			{/* <CustomNpc /> */}
-			{/* <LogDisplay /> */}
-
-			{/* <Settings /> */}
-		</Container>
-	);
-};
+const MainApplicationWrapper = styled(Container)`
+ 	height: 90%; 
+  	width: 90%;
+`;
