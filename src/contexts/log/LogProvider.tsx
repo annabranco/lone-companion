@@ -13,16 +13,13 @@ export const LogProvider = ({ children }: PropsWithChildren) => {
 	const refreshData = useCallback(async () => {
 		const logDBData = await getDocs(logsCollection);
 		const updatedLogs = logDBData.docs.map(doc => {
-			const { creator, content } = doc.data();
-
 			return {
-				creator,
+				...doc.data(),
 				id: doc.id,
-				...content,
-			};
+			} as Log;
 		});
 
-		console.log(updatedLogs);
+		orderBy('newFirst', updatedLogs);
 		updateLogs(updatedLogs);
 	}, []);
 
@@ -42,7 +39,7 @@ export const LogProvider = ({ children }: PropsWithChildren) => {
 		async (data: RawLog): Promise<boolean> => {
 			try {
 				const timestamp = new Date().toISOString();
-				const log: Log = {
+				const log = {
 					...data,
 					timestamp,
 				};
@@ -72,4 +69,18 @@ export const LogProvider = ({ children }: PropsWithChildren) => {
 
 
 	return <LogContext.Provider value={{ addLog, clearLogs, deleteLog, logs }}>{children}</LogContext.Provider>;
+};
+
+const orderBy = (type: 'newFirst' | 'oldFirst', logArray: Log[]) => {
+	const byCreationDate = (a: Log, b: Log) => {
+		if (a.timestamp < b.timestamp) {
+			return type === 'newFirst' ? 1 : -1;
+		}
+		if (a.timestamp > b.timestamp) {
+			return type === 'newFirst' ? -1 : 1;
+		}
+		return 0;
+	}
+
+	return logArray.sort(byCreationDate);
 };

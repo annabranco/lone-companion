@@ -1,13 +1,11 @@
 import { useContext, useState } from 'react';
-import { Colors, FontSize } from '../../config';
-import { diceSound } from '../../assets/sounds';
-import { LanguagesContext, SettingsContext } from '../../contexts';
-import { useLog, useSound } from '../../hooks';
-import { DIE, roll } from '../roll';
-import { OracleComponent } from './OracleComponent';
-import { getOracleOptionsByWeight } from './oracleUtils';
-import { defaultOracleOptions, ORACLE_ANSWERS_WITH_MULTIPLIERS, ORACLE_RESULT, ORACLE_RUNES, POSITIVE_LIKELY } from './constants';
-import { OracleComponentProps, OracleOptions, OracleResult } from './types';
+import { Colors, FontSize } from '../config';
+import { LanguagesContext, SettingsContext } from '../contexts';
+import { OracleComponent } from '../features/Oracle/OracleComponent';
+import { getOracleOptionsByWeight } from '../features/Oracle/oracleUtils';
+import { defaultOracleOptions, ORACLE_ANSWERS_WITH_MULTIPLIERS, ORACLE_RESULT, ORACLE_RUNES, POSITIVE_LIKELY } from '../features/Oracle/constants';
+import { OracleComponentProps, OracleOptions, OracleResult } from '../features/Oracle/types';
+import { useDice, useLog } from '.';
 // import { Colors, FontSize } from '../../config';
 
 export interface UseOracleReturn {
@@ -23,15 +21,15 @@ export const useOracle = (): UseOracleReturn => {
 	const [showProbabilities, toggleProbabilities] = useState(false);
 	const { getText, language } = useContext(LanguagesContext);
 	const { useTextRunes } = useContext(SettingsContext);
+	const { die, roll } = useDice();
 
 	const { log } = useLog();
-	const { play } = useSound(diceSound);
 
 	const rollOracle = (options?: OracleOptions) => {
 		const { chance = POSITIVE_LIKELY.MAYBE, question } = options || defaultOracleOptions;
 		const answers = getOracleOptionsByWeight(ORACLE_ANSWERS_WITH_MULTIPLIERS, chance);
 
-		const rollResult = roll(DIE.d100);
+		const rollResult = roll(die.d100);
 		const oracleRoll: ORACLE_RESULT = answers[rollResult];
 		let oracleRunesLanguage: 'en' | 'es' | 'futhark' = 'futhark';
 
@@ -58,11 +56,6 @@ export const useOracle = (): UseOracleReturn => {
 				width: 120,
 			},
 		});
-
-
-		setTimeout(() => {
-			play();
-		}, 100);
 
 		setTimeout(() => {
 			setOracleResult(undefined);

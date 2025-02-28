@@ -1,3 +1,3 @@
 export * from './languages';
-export * from './logger';
+export * from './log';
 export * from './settings';

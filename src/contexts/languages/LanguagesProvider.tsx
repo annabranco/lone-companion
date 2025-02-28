@@ -1,14 +1,12 @@
-import { PropsWithChildren, useCallback, useState } from 'react';
+import { PropsWithChildren, useCallback } from 'react';
 import { LanguagesContext } from './LanguagesContext';
-import { LanguageProviderProps } from './types';
 import { Genders } from '../../constants';
-import { LANGUAGES, SupportedLanguages, translate } from '../../utils/i18n';
-import { saveData, StateKeys } from '../../utils/stateManager';
+import { SupportedLanguages, translate } from '../../utils/i18n';
+import { LOCAL_STORAGE_KEYS, useLocalStorage } from '../../hooks/useLocalStorage';
+import { defaultState } from '../../config/defaultState';
 
-const supportedLanguages = Object.keys(LANGUAGES);
-
-export const LanguagesProvider = ({ children, savedLanguage }: PropsWithChildren<LanguageProviderProps>) => {
-	const [language, updateLanguage] = useState<SupportedLanguages>(savedLanguage || getLanguage());
+export const LanguagesProvider = ({ children }: PropsWithChildren) => {
+	  const [language, changeUserLanguage] = useLocalStorage(LOCAL_STORAGE_KEYS.LANGUAGE, defaultState.language);
 
 	const getText = useCallback(
 		(text: string, genderModifier?: Genders) => {
@@ -18,31 +16,14 @@ export const LanguagesProvider = ({ children, savedLanguage }: PropsWithChildren
 
 	const changeLanguage = useCallback(
 		async (language: SupportedLanguages) => {
-			updateLanguage(language);
+			changeUserLanguage(language);
 
-			saveData(StateKeys.Language, {
-				current: language,
-			});
 		},
-		[updateLanguage]);
+		[changeUserLanguage]);
 
 	return (
 		<LanguagesContext.Provider value={{ language, changeLanguage, getText }}>
 			{children}
 		</LanguagesContext.Provider>
 	);
-};
-
-const getLanguage = (): SupportedLanguages => {
-	const defaultLanguage: SupportedLanguages = LANGUAGES.en;
-	let navigatorLanguage: string = LANGUAGES.en;
-
-	if (navigator.languages) {
-		navigatorLanguage = navigator.languages[0];
-	}
-
-	if (supportedLanguages.includes(navigatorLanguage)) {
-		return navigatorLanguage as SupportedLanguages;
-	}
-	return defaultLanguage;
 };

@@ -2,13 +2,31 @@ import { LANGUAGES, SupportedLanguages } from '../utils/i18n';
 import { SettingsState, Theme } from '../types';
 
 export const defaultSettings: SettingsState = {
-	useTextRunes: true,
-	theme: Theme.Light,
+  useTextRunes: true,
+  theme: Theme.Light,
 };
 
-export const defaultLanguage: SupportedLanguages = LANGUAGES.en;
+const supportedLanguages = Object.keys(LANGUAGES);
+
+const getDefaultLanguage = (): SupportedLanguages => {
+  const defaultLanguage: SupportedLanguages = LANGUAGES.en;
+  let navigatorLanguage: string = LANGUAGES.en;
+
+  if (navigator.languages) {
+    navigatorLanguage = navigator.languages[0];
+  }
+
+  if (supportedLanguages.includes(navigatorLanguage)) {
+    return navigatorLanguage as SupportedLanguages;
+  }
+  return defaultLanguage;
+};
+
+export const defaultLanguage: SupportedLanguages = getDefaultLanguage();
 
 export const defaultState = {
   settings: defaultSettings,
   language: defaultLanguage,
 }
+
+

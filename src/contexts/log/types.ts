@@ -44,12 +44,6 @@ export interface Log extends RawLog {
 	id: string;
 }
 
-export interface LogFromDB {
-	content: Log;
-	creator: string;
-	id: string;
-}
-
 export interface LogContextInterface {
 	addLog: (data: RawLog) => Promise<boolean>;
 	clearLogs: () => void;

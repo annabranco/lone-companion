@@ -20,11 +20,9 @@ export interface SettingsState {
 	theme: Theme;
 }
 
-export interface LanguagesState {
-	current: SupportedLanguages;
-}
+export type LanguagesState = SupportedLanguages;
 
-export interface SavedData {
+export interface LoadedData {
 	settings: SettingsState;
 	language: SupportedLanguages;
 }

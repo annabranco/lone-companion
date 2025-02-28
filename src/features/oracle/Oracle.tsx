@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { AppButton } from '../../components/AppButton';
 import { LanguagesContext } from '../../contexts';
-import { useOracle } from './useOracle';
+import { useOracle } from '../../hooks/useOracle';
 
 
 export const Oracle = () => {

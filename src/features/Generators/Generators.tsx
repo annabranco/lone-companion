@@ -1,6 +1,6 @@
 import { Oracle } from '../Oracle/Oracle';
 
-export const Oracles = () => {
+export const Generators = () => {
     return (
         <>
             <Oracle />

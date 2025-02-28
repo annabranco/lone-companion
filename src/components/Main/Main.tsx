@@ -1,12 +1,12 @@
 // import { Settings } from '../../features/settings';
 import styled from '@emotion/styled';
 import { Container } from '../Container';
-import { LogDisplay } from '../../features/log';
-import { Oracles } from '../../features/Oracles/Oracles';
+import { LogDisplay } from '../../features/Log';
+import { Generators } from '../../features/Generators';
 
 export const Main = () => (
 	<MainApplicationWrapper>
-		<Oracles />
+		<Generators />
 		<LogDisplay />
 	</MainApplicationWrapper>
 );

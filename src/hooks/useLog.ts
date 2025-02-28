@@ -1,4 +1,4 @@
-import { Log, LogContext, LogMessageId, RawLog } from '../contexts/logger';
+import { Log, LogContext, LogMessageId, RawLog } from '../contexts/log';
 import { useCallback, useContext } from 'react';
 
 interface UseLogReturn {
