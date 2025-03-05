@@ -2,7 +2,7 @@ import {createContext} from 'react';
 import {SettingsState, Theme} from '../../types';
 
 export interface SettingsContextInterface extends SettingsState {
-	toggleUseTextRunes: (useTextRunes: boolean) => void;
+	toggleUseTextRunes: () => void;
 	toggleDarkMode: () => void;
 }
 

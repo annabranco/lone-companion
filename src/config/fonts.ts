@@ -7,13 +7,13 @@ export enum Fonts {
 }
 
 export enum FontSize {
-	xxsmall = '8px',
-	xsmall = '10px',
-	small = '12px',
-	medium = '16px',
-	big = '19px',
-	large = '24px',
-	xlarge = '30px',
-	xxlarge = '36px',
-	xxxlarge = '42px',
+	xxsmall = '0.5rem',
+	xsmall = '0.625rem',
+	small = '0.75rem',
+	medium = '1rem',
+	big = '1.125rem',
+	large = '1.5rem',
+	xlarge = '1.875rem',
+	xxlarge = '2.25rem',
+	xxxlarge = '2.625rem',
 }

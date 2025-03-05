@@ -10,7 +10,7 @@ export const SettingsProvider = ({ children }: PropsWithChildren) => {
 
 	const toggleDarkMode = useCallback(() => {
 		const newTheme = settings.theme === Theme.Dark ? Theme.Light : Theme.Dark;
-
+		
 		saveSettings({
 			...settings,
 			theme: newTheme,

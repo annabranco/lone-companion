@@ -4,30 +4,30 @@ import { Fonts, FontSize } from './fonts';
 import { Theme } from '../types';
 
 export const TextColor = {
-	[Theme.Dark]: css({
-		color: Colors.gray1,
-	}),
-	[Theme.Light]: css({
-		color: Colors.red7,
-	}),
+	[Theme.Dark]: css`
+		color: ${Colors.gray1};
+	`,
+	[Theme.Light]: css`
+		color: ${Colors.red7};
+	`,
 };
 
 export const BackgroundColor = {
-	[Theme.Dark]: css({
-		backgroundColor: Colors.gray7,
-	}),
-	[Theme.Light]: {
-		backgroundColor: Colors.gray0,
-	},
+	[Theme.Dark]: css`
+		background-color: ${Colors.gray7};
+	`,
+	[Theme.Light]: css`
+		background-color: ${Colors.gray0};
+	`,
 };
 
 export const OverlayBackground = {
-	[Theme.Dark]: css({
-		backgroundColor: 'rgba(0,0,0,0.90)',
-	}),
-	[Theme.Light]: css({
-		backgroundColor: 'rgba(0,0,0,0.85)',
-	}),
+	[Theme.Dark]: css`
+		background-color: rgba(0, 0, 0, 0.90);
+	`,
+	[Theme.Light]: css`
+		background-color: rgba(0, 0, 0, 0.85);
+	`,
 };
 
 export const GlobalStyles = {
