@@ -26,6 +26,14 @@ export const SettingsOverlay = styled.div`
 
 export const SettingsWrapper = styled.div`
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+`;
+
+export const MainSettingsWrapper = styled.div`
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
@@ -53,4 +61,9 @@ export const ToggleTexts = styled(Typography) <{ disabled?: boolean }>`
 
 export const BackButton = styled(AppButton)`
     margin-top: 4rem;
+    height: 3rem;
+    width: 60%;
+    margin: 50px;
+    text-transform: uppercase;
+    justify-self: flex-end;
 `;

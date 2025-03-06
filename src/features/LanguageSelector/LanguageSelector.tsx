@@ -1,11 +1,11 @@
-import React, {useContext, useState} from 'react';
-import {Modal, Pressable, StyleSheet, View} from 'react-native';
-import {AppButton} from '../../components/AppButton/AppButton';
-import {SupportedLanguages, TranslatedLanguages} from '../../utils/i18n/types';
-import {LanguagesContext} from '../../contexts/languages/LanguagesContext';
-import {SettingsContext} from '../../contexts/settings/SettingsContext';
+import { useContext, useState } from 'react';
+import { AppButton } from '../../components/AppButton/AppButton';
+import { SupportedLanguages, ExtendedTranslatedLanguages } from '../../utils/i18n/types';
+import { LanguagesContext } from '../../contexts/languages/LanguagesContext';
+import { SettingsContext } from '../../contexts/settings/SettingsContext';
+import { LanguagButtonsArea, LanguageSelectorButtonsOverlay, LanguageSelectorWrapper } from './styled';
 
-const SUPPORTED_LANGUAGES: TranslatedLanguages = {
+const SUPPORTED_LANGUAGES: ExtendedTranslatedLanguages = {
 	en: 'English',
 	pt: 'Português',
 	es: 'Español',
@@ -15,53 +15,45 @@ const SUPPORTED_LANGUAGES: TranslatedLanguages = {
 	jp: '日本語',
 };
 
-export const LanguageHandler = () => {
+export const LanguageSelector = () => {
 	const [displayOptions, toggleDisplayOptions] = useState(false);
-	const {changeLanguage, getText} = useContext(LanguagesContext);
-	const {toggleUseTextRunes} = useContext(SettingsContext);
+	const { changeLanguage, getText } = useContext(LanguagesContext);
+	const { toggleUseTextRunes } = useContext(SettingsContext);
 
 	return (
-		<View>
-			<AppButton onClick={() => toggleDisplayOptions(true)}>{getText('Change Language')}</AppButton>
-			<Modal animationType='fade' transparent={true} visible={displayOptions}>
-				<Pressable
-					onPressOut={() => {
-						toggleDisplayOptions(false);
-					}}
-					style={styles.languagesSelector}
-				>
-					{Object.entries(SUPPORTED_LANGUAGES).map(([language, name]) => (
-						<AppButton
-							key={language}
-							onClick={() => {
-								const lang = language as SupportedLanguages;
-								changeLanguage(lang);
-								toggleDisplayOptions(false);
+		<LanguageSelectorWrapper>
+			<AppButton onClick={() => toggleDisplayOptions(true)}>
+				{getText('Change Language')}
+			</AppButton>
 
-								if (lang !== 'en' && lang !== 'es') {
-									toggleUseTextRunes(false);
-								}
-							}}
-							styles={{width: 160}}
-						>
-							{name}
-						</AppButton>
-					))}
-				</Pressable>
-			</Modal>
-		</View>
+			{displayOptions && (
+				<LanguageSelectorButtonsOverlay>
+					<LanguagButtonsArea
+						onClick={() => {
+							toggleDisplayOptions(false);
+						}}
+					>
+						{Object.entries(SUPPORTED_LANGUAGES).map(([language, name]) => (
+							<AppButton
+								key={language}
+								onClick={() => {
+									const lang = language as SupportedLanguages;
+									changeLanguage(lang);
+									toggleDisplayOptions(false);
+
+									if (lang !== 'en' && lang !== 'es') {
+										toggleUseTextRunes();
+									}
+								}}
+								styles={{ width: 160 }}
+							>
+								{name}
+							</AppButton>
+						))}
+					</LanguagButtonsArea>
+				</LanguageSelectorButtonsOverlay>
+
+			)}
+		</LanguageSelectorWrapper>
 	);
 };
-
-const styles = StyleSheet.create({
-	languagesSelector: {
-		position: 'absolute',
-		alignItems: 'center',
-		justifyContent: 'center',
-		top: 0,
-		left: 0,
-		width: '100%',
-		height: '100%',
-		backgroundColor: 'rgba(0,0,0,0.8)',
-	},
-});

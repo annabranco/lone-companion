@@ -17,7 +17,7 @@ export interface TranslatedLanguages {
 	[LANGUAGES.pt]: string;
 }
 
-interface ExtendedTranslatedLanguages extends TranslatedLanguages {
+export interface ExtendedTranslatedLanguages extends TranslatedLanguages {
 	[EXTENDED_LANGUAGES.de]?: string;
 	[EXTENDED_LANGUAGES.fr]?: string;
 	[EXTENDED_LANGUAGES.jp]?: string;

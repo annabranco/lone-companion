@@ -16,7 +16,7 @@ export const LogContainer = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        gap: 10;
+        gap: 10px;
         background-color: ${Colors.gray1};
         border: 2px solid white;
 `;
