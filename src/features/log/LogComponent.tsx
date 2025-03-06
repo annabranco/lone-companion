@@ -1,8 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import { useContext } from 'react';
-import { AppButton } from '../../components/AppButton';
+import { useContext, useState } from 'react';
 import { Colors } from '../../config';
-import { Log, SettingsContext } from '../../contexts';
+import { LanguagesContext, Log, SettingsContext } from '../../contexts';
 import { useLog } from '../../hooks';
 import { LogDeleteButton, LogHeader, LogImage, LogImageWrapper, LogInfo, LogInfoWrapper, LogMessage, LogTitle, LogTitleWrapper, LogWrapper, TimeStamp } from './styled';
 
@@ -13,13 +12,28 @@ const getFormattedDate = (timestamp: Date | string) => {
 
 export const LogComponent = ({ header, id, info, timestamp, title, message, image }: Log) => {
 	const { theme } = useContext(SettingsContext);
+	const { getText } = useContext(LanguagesContext);
 	const { deleteLog } = useLog();
+	const [isDeleteVisible, toggleIsDeleteVisible] = useState(false);
+
+
+	// TODO [06-Mar-25]: Add confirmation modal to delete (Anna Branco)
 
 	return (
 		<LogWrapper id={id} key={id} theme={theme}>
-			<LogDeleteButton kind="ghost" onClick={ () => deleteLog(id)}>X
-			</LogDeleteButton>
-				<TimeStamp>{getFormattedDate(timestamp)}</TimeStamp>
+
+			{isDeleteVisible ? (
+				<LogDeleteButton kind="ghost" onClick={() => deleteLog(id)}
+					onMouseLeave={() => toggleIsDeleteVisible(false)}
+				>
+					{getText('Delete')}
+				</LogDeleteButton>
+
+			) : (
+				<TimeStamp
+					onMouseEnter={() => toggleIsDeleteVisible(true)}
+				>{getFormattedDate(timestamp)}</TimeStamp>
+			)}
 
 			{header && (
 				<LogHeader

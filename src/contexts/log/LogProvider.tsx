@@ -39,17 +39,13 @@ export const LogProvider = ({ children }: PropsWithChildren) => {
 		async (data: RawLog): Promise<boolean> => {
 			try {
 				const timestamp = new Date().toISOString();
-				const log = {
+				const newLog = {
 					...data,
 					timestamp,
-				};
-
-				const newLogObject = {
-					content: log,
 					creator: auth.currentUser?.uid || '',
 				};
 
-				await addDoc(logsCollection, newLogObject);
+				await addDoc(logsCollection, newLog);
 				await refreshData();
 
 				return true;

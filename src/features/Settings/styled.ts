@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Typography } from '../../components/Typography';
 import { AppButton } from '../../components/AppButton';
-import { Colors } from '../../config';
+import { Colors, ZIndex } from '../../config';
 
 export const SettingsButton = styled(AppButton)`
     display: flex;
@@ -11,6 +11,7 @@ export const SettingsButton = styled(AppButton)`
 `;
 
 export const SettingsOverlay = styled.div`
+    z-index: ${ZIndex.Overlay};
     position: absolute;
     align-items: center;
     justify-content: center;
@@ -25,6 +26,7 @@ export const SettingsOverlay = styled.div`
 `;
 
 export const SettingsWrapper = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,10 +62,10 @@ export const ToggleTexts = styled(Typography) <{ disabled?: boolean }>`
 `;
 
 export const BackButton = styled(AppButton)`
-    margin-top: 4rem;
+    position: absolute;
+    bottom: 0;
     height: 3rem;
     width: 60%;
     margin: 50px;
     text-transform: uppercase;
-    justify-self: flex-end;
 `;

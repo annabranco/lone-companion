@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
 import { AppButton } from '../../components/AppButton';
-import { Colors, Fonts, FontSize, ZIndex } from '../../config';
+import { Colors, Fonts, FontSize } from '../../config';
 import { css } from '@emotion/react';
 import { Theme } from '../../types';
 import { Typography } from '../../components/Typography';
 
 export const LogContainer = styled.div`
-        z-index: ${ZIndex.Front};
         position: absolute;
         top: 0;
         right: 0;
@@ -70,10 +69,26 @@ export const LogWrapper = styled.div<{ theme: Theme }>`
 export const TimeStamp = styled(Typography)`
         position: absolute;
         top: 5px;
-        right: 10px;
+        right: 20px;
+        width: 120px;
         font-size: ${FontSize.small};
         text-align: right;
         color: ${Colors.green7};
+`;
+
+export const LogDeleteButton = styled(AppButton)`
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 120px;
+        font-size: ${FontSize.medium};
+        color: ${Colors.red5};
+        margin: 0 auto;
+        box-shadow: none;
+        text-align: right;
+        line-height: 0.2rem;
+        font-weight: 900;
+        text-transform: uppercase;
 `;
 
 export const LogHeader = styled(Typography)`
@@ -84,23 +99,16 @@ export const LogHeader = styled(Typography)`
         text-align: left;
         color: ${Colors.pink4};
         font-weight: bold;
-        font-family: ${Fonts.AlumniSans}
-`;
-
-export const LogDeleteButton = styled(AppButton)`
-        height: 25px;        
-        width: 50px;
-        padding: 0;
-        color: ${Colors.blue6};
-        margin: 0 auto;
-        background-color: ${Colors.red2};
+        font-family: ${Fonts.AlumniSans};
 `;
 
 export const LogTitleWrapper = styled.div`
         width: 100%;
-        border-bottom: 1px solid ${Colors.green6};
-        padding-bottom: 2px;
-        margin-bottom: 15px;
+        border: 1px solid ${Colors.green6};
+        border-radius: 5px;
+        background-color: ${Colors.yellow1};
+        padding: 2px 10px;
+        margin: 20px auto 0;
 `;
 
 export const LogTitle = styled(Typography)`

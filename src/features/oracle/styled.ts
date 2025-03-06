@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Typography } from '../../components/Typography';
-import { Colors, FontSize, GlobalStyles } from '../../config';
+import { Colors, FontSize, GlobalStyles, ZIndex } from '../../config';
 import { Theme } from '../../types';
 
 export const ConditionalWrapper = styled.div<{ visible: boolean }>`
@@ -9,6 +9,7 @@ export const ConditionalWrapper = styled.div<{ visible: boolean }>`
 `;
 
 export const OracleOverlay = styled.div`
+	z-index: ${ZIndex.Front};
 	position: absolute;
 	top: 0;
 	left: 0;

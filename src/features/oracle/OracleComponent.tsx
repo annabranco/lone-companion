@@ -33,17 +33,31 @@ export const OracleComponent = ({ result, rollOracle, showProbabilities, toggleO
 		toggleIsQuestionDisplayed(false);
 		updateQuestion('');
 		rollOracle({ chance, question });
-	}
+	};
+
+	const onClickDisplayQuestionInput = (event: React.MouseEvent) => {
+		event.stopPropagation();
+		updateQuestion('');
+		toggleIsQuestionDisplayed(true);
+	};
+
+	const onChangeQuestionInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+		const { value } = event.currentTarget;
+
+		updateQuestion(value)
+	};
 
 	const closeOracle = () => {
 		toggleOracle();
 		resetState();
-	}
+	};
 
 	const closeResults = () => {
 		toggleIsResultlVisible(false);
 		resetState();
-	}
+	};
+
+	const preventClosingOverlay = (event:React.MouseEvent) => event.stopPropagation();
 
 	useEffect(() => {
 		if (result) {
@@ -55,8 +69,8 @@ export const OracleComponent = ({ result, rollOracle, showProbabilities, toggleO
 
 	return (
 		<>
-			<ConditionalWrapper visible={showProbabilities} onClick={closeOracle}>
-				<OracleOverlay>
+			{showProbabilities && (
+				<OracleOverlay onClick={closeOracle}>
 					<PossibilityTitle>{getText('How likely is the answer to be positive?')}</PossibilityTitle>
 
 					<Possibilities>
@@ -76,7 +90,8 @@ export const OracleComponent = ({ result, rollOracle, showProbabilities, toggleO
 						{isQuestionDisplayed ? (
 							<QuestionInput
 								placeholder={getText('Write the question')}
-								onChange={(event) => updateQuestion(event.currentTarget.value)}
+								onChange={onChangeQuestionInput}
+								onClick={preventClosingOverlay}
 								autoComplete='off'
 								autoFocus
 								rows={5}
@@ -84,10 +99,7 @@ export const OracleComponent = ({ result, rollOracle, showProbabilities, toggleO
 							/>
 						) : (
 							<AppButton
-								onClick={() => {
-									updateQuestion('');
-									toggleIsQuestionDisplayed(true);
-								}}
+								onClick={onClickDisplayQuestionInput}
 								styles={oracleStyles.questionTitle}
 								kind='secondary'
 							>
@@ -96,7 +108,8 @@ export const OracleComponent = ({ result, rollOracle, showProbabilities, toggleO
 						)}
 					</QuestionArea>
 				</OracleOverlay>
-			</ConditionalWrapper>
+
+			)}
 
 			<ConditionalWrapper visible={isResultlVisible}>
 				{result && (
