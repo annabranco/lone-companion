@@ -1,8 +1,9 @@
 /** @jsxImportSource @emotion/react */
+
 import { useContext, useState } from 'react';
-import { BackgroundColor, Colors, FontSize, ZIndex } from '../../config';
-import { LanguagesContext, SettingsContext } from '../../contexts';
 import { Typography } from '../../components/Typography';
+import { BackgroundColor, Colors, FontSize, zIndex } from '../../config';
+import { LanguagesContext, SettingsContext } from '../../contexts';
 import { useLog } from '../../hooks';
 import { LogComponent } from './LogComponent';
 import { LogContainer, LogList, LogListWrapper } from './styled';
@@ -31,21 +32,21 @@ export const LogDisplay = () => {
 				{/* <AppButton onClick={() => toggleDisplayLogs(false)}>{getText('Back')}</AppButton> */}
 
 				<LogList>
-					{logs.length ? logs.map((item) => (
-
-						<li key={item.id}><LogComponent {...item} /></li>
-					)) : (
-
+					{logs.length ? (
+						logs.map((item) => (
+							<li key={item.id}>
+								<LogComponent {...item} />
+							</li>
+						))
+					) : (
 						<Typography>{getText('Your log is still empty')}</Typography>
 					)}
-
 				</LogList>
 			</LogListWrapper>
 
 			{/* <AppButton onClick={() => toggleDisplayLogs(true)}>{getText('Show Log')}</AppButton>
 
 			<AppButton onClick={removeAllLogs}>{getText('Delete All Logs')}</AppButton> */}
-
 		</LogContainer>
 	);
 };

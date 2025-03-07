@@ -10,7 +10,7 @@ export const LogContainer = styled.div`
         top: 0;
         right: 0;
         width: 30%;
-        height: 100%;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -25,23 +25,24 @@ export const LogListWrapper = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        margin: 50px 20px;
+        margin: 30px 20px;
         padding: 10px;
         border: 1px solid black;
         border-radius: 5px;
         box-shadow:inset 0 0 3px 1px rgba(0,0,0,0.45);
         width: 90%;
-        height: 100%;
+        height: calc(100vh - 60px);
 `;
-
 
 export const LogList = styled.ul`
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         list-style: none;
-        gap: 20px;
+        gap: 10px;
+        overflow-y: auto;
+        width: 100%;
 `;
 
 export const LogWrapper = styled.div<{ theme: Theme }>`
@@ -67,7 +68,6 @@ export const LogWrapper = styled.div<{ theme: Theme }>`
 `;
 
 export const TimeStamp = styled(Typography)`
-        position: absolute;
         top: 5px;
         right: 20px;
         width: 120px;
@@ -78,28 +78,37 @@ export const TimeStamp = styled(Typography)`
 
 export const LogDeleteButton = styled(AppButton)`
         position: absolute;
-        top: 5px;
-        right: 5px;
-        width: 120px;
+        top: -5px;
+        right: -5px;
         font-size: ${FontSize.medium};
         color: ${Colors.red5};
-        margin: 0 auto;
-        box-shadow: none;
         text-align: right;
         line-height: 0.2rem;
         font-weight: 900;
         text-transform: uppercase;
 `;
 
+export const LogHeaderArea = styled.div`
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: -1.25rem -0.25rem -0.25rem;
+`;
+
 export const LogHeader = styled(Typography)`
-        position: absolute;
-        top: 0px;
-        left: 10px;
         font-size: ${FontSize.large};
         text-align: left;
         color: ${Colors.pink4};
         font-weight: bold;
         font-family: ${Fonts.AlumniSans};
+`;
+
+export const LogContentArea = styled.div`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 `;
 
 export const LogTitleWrapper = styled.div`
