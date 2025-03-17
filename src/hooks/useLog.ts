@@ -1,11 +1,12 @@
-import { Log, LogContext, LogMessageId, RawLog } from '../contexts/log';
 import { useCallback, useContext } from 'react';
 
+import { Log, LogContext, LogMessageId, RawLog } from '../contexts/log';
+
 interface UseLogReturn {
+	deleteAllLogs: () => void;
 	deleteLog: (id: LogMessageId) => void;
 	log: (data: RawLog) => Promise<boolean>;
 	logs: Log[];
-	deleteAllLogs: () => void;
 }
 
 export const useLog = (): UseLogReturn => {
@@ -35,9 +36,9 @@ export const useLog = (): UseLogReturn => {
 	}, []);
 
 	return {
+		deleteAllLogs,
 		deleteLog: removeLog,
 		log: addNewlog,
 		logs: returnLogs,
-		deleteAllLogs,
 	};
 };

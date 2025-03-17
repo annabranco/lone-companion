@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
-import { AppButton } from '../../components/AppButton';
-import { Colors, Fonts, FontSize } from '../../config';
+
 import { css } from '@emotion/react';
-import { Theme } from '../../types';
+import { AppButton } from '../../components/AppButton';
 import { Typography } from '../../components/Typography';
+import { Colors, Fonts, FontSize } from '../../config';
+import { Theme } from '../../types';
 
 export const LogContainer = styled.div`
         position: absolute;
@@ -153,4 +154,11 @@ export const LogInfo = styled(Typography)`
         font-size: ${FontSize.medium};
         color: ${Colors.blue6};
         font-style: italic;
+`;
+
+export const LogContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;

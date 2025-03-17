@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+
 import { Container } from '../Container';
 
 export const MainApplicationWrapper = styled(Container)`

@@ -1,47 +1,26 @@
-import { ReactElement } from 'react';
 import { DocumentData } from 'firebase/firestore';
-import { Colors, FontSize } from '../../config';
+
+import { NpcCharacteristics } from '../../features/Generators/npcs/types';
+import { GeneratedTextExtended, GeneratedContentType, GeneratedText, GeneratedImage } from '../../features/Generators/types';
 
 export type LogMessageId = string;
 
 export type LogState = Log[];
 
-export interface LogText {
-	text?: string;
-	color?: Colors;
-	size?: FontSize;
-	weight?: 'bold' | 'normal';
-	style?: 'italic';
-}
-
-export interface LogTextExtended extends LogText {
-	align?: 'center' | 'left' | 'right';
-	background?: Colors;
-}
-
-export interface LogContent extends LogTextExtended {
-	content?: ReactElement;
-}
-
-interface LogImage {
-	source: string;
-	width?: number;
-	marginTop?: number;
-	marginBottom?: number;
-}
-
 export interface RawLog {
-	header?: LogText;
-	image?: LogImage;
-	message: LogContent;
-	title?: LogTextExtended;
-	info?: LogTextExtended;
+	content?: NpcCharacteristics;
+	header?: GeneratedText;
+	image?: GeneratedImage;
+	info?: GeneratedTextExtended;
+	message?: GeneratedTextExtended;
+	title?: GeneratedTextExtended;
+	type: GeneratedContentType
 }
 
 export interface Log extends RawLog {
-	timestamp: string;
 	creator: string;
 	id: string;
+	timestamp: string;
 }
 
 export interface LogContextInterface {

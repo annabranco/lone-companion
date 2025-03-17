@@ -1,15 +1,17 @@
 import { Global } from '@emotion/react';
-import { globalStylesDefinitions } from '../../styled';
+import { ToastContainer } from 'react-toastify';
+
 import {
   LanguagesProvider,
   LogProvider,
   SettingsProvider,
 } from '../../contexts';
+import { globalStylesDefinitions } from '../../styled';
 import { Main } from '../Main';
 // import { Header } from './components/Header/Header';
+import { zIndex } from '../../config';
 import { UserProvider } from '../../contexts/user/UserProvider';
 import './resetStyles.css';
-import { ToastContainer } from 'react-toastify';
 
 export const App = () => {
   return (
@@ -18,7 +20,7 @@ export const App = () => {
       <SettingsProvider>
         <UserProvider>
           <LogProvider>
-            <ToastContainer />
+            <ToastContainer style={{ zIndex: zIndex.Front }} />
             {/* <Header /> */}
 
             <Main />

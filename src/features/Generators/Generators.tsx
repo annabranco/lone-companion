@@ -1,5 +1,6 @@
 import { Oracle } from '../Oracle/Oracle';
 import { NameGenerator } from './names';
+import { NpcGenerator } from './npcs';
 
 export const Generators = () => {
     return (
@@ -7,7 +8,7 @@ export const Generators = () => {
             <Oracle />
 
             <NameGenerator />
-            {/* <NpcGenerator /> */}
+            <NpcGenerator />
             {/* <CustomNpc /> */}
         </>
     );

@@ -1,5 +1,6 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+
 import { Colors, Fonts, FontSize, zIndex } from '../../config';
 import { Typography } from '../Typography';
 
@@ -98,11 +99,21 @@ export const NotificationIcon = styled.img`
   background: red;
 `;
 
-export const NotificationContent = styled(Typography)`
+export const NotificationText = styled(Typography)<{ withIcon: boolean }>`
+  margin-top: 10px;
+  margin-left: ${({ withIcon }) => (withIcon ? '20px' : '10px')};
+
   font-size: ${FontSize.big};
   color: ${Colors.black};
   font-weight: bold;
   font-family: ${Fonts.MedievalSharp};
+`;
+
+export const NotificationContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const progressAnimation = keyframes`
@@ -127,4 +138,12 @@ export const ProgressBar = styled.div<{ duration: number; isPaused: boolean }>`
   animation-fill-mode: forwards;
   animation-duration: ${({ duration }) => `${duration}ms`};
   animation-play-state: ${({ isPaused }) => (isPaused ? 'paused' : 'running')};
+`;
+
+export const NpcNotificationWrapper = styled.div`
+  margin-top: 5px;
+
+  & > div > p:nth-of-type(2) {
+    margin-left: 3rem;
+  }
 `;

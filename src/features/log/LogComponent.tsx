@@ -1,10 +1,15 @@
 /** @jsxImportSource @emotion/react */
 
 import { useContext, useState } from 'react';
+
 import { Colors } from '../../config';
 import { LanguagesContext, Log, SettingsContext } from '../../contexts';
 import { useLog } from '../../hooks';
+import { NpcViewComponent } from '../Generators/npcs/components/NpcViewComponent';
+import { NpcCharacteristics } from '../Generators/npcs/types';
+import { GeneratedContentType } from '../Generators/types';
 import {
+	LogContent,
 	LogContentArea,
 	LogDeleteButton,
 	LogHeader,
@@ -27,19 +32,29 @@ const getFormattedDate = (timestamp: Date | string) => {
 
 export const LogComponent = ({
 	header,
+	content,
 	id,
+	image,
 	info,
+	message,
 	timestamp,
 	title,
-	message,
-	image,
+	type,
 }: Log) => {
 	const { theme } = useContext(SettingsContext);
 	const { getText } = useContext(LanguagesContext);
 	const { deleteLog } = useLog();
 	const [isDeleteVisible, toggleIsDeleteVisible] = useState(false);
 
-	// TODO [06-Mar-25]: Add confirmation modal to delete (Anna Branco)
+	// TODO [06-Mar-25]: Add confirmation modal to delete
+
+	const getContent = () => {
+		if (type === GeneratedContentType.NPC) {
+			return (
+				<NpcViewComponent npc={content as NpcCharacteristics} />
+			);
+		}
+	}
 
 	return (
 		<LogWrapper id={id} key={id} theme={theme}>
@@ -49,8 +64,8 @@ export const LogComponent = ({
 						styles={{
 							...(header.color ? { color: header.color } : {}),
 							...(header.size ? { fontSize: header.size } : {}),
-							...(header.weight ? { fontWeight: header.weight } : {}),
 							...(header.style ? { fontStyle: header.style } : {}),
+							...(header.weight ? { fontWeight: header.weight } : {}),
 						}}
 					>
 						{header.text}
@@ -73,11 +88,11 @@ export const LogComponent = ({
 					<LogTitleWrapper>
 						<LogTitle
 							styles={{
+								...(title.align ? { textAlign: title.align } : {}),
 								...(title.color ? { color: title.color } : {}),
 								...(title.size ? { fontSize: title.size } : {}),
-								...(title.weight ? { fontWeight: title.weight } : {}),
 								...(title.style ? { fontStyle: title.style } : {}),
-								...(title.align ? { textAlign: title.align } : {}),
+								...(title.weight ? { fontWeight: title.weight } : {}),
 							}}
 						>
 							{title.text}
@@ -101,22 +116,27 @@ export const LogComponent = ({
 					</LogImageWrapper>
 				)}
 
-				<div>
-					{message.text && (
-						<LogMessage
-							styles={{
-								...(message.color ? { color: message.color } : {}),
-								...(message.size ? { fontSize: message.size } : {}),
-								...(message.weight ? { fontWeight: message.weight } : {}),
-								...(message.style ? { fontStyle: message.style } : {}),
-								...(message.align ? { textAlign: message.align } : {}),
-							}}
-						>
-							{message.text}
-						</LogMessage>
-					)}
-					{message.content}
-				</div>
+				{message && (
+								<div>
+									{message.text && (
+										<LogMessage
+											styles={{
+												...(message.align ? { textAlign: message.align } : {}),
+												...(message.color ? { color: message.color } : {}),
+												...(message.size ? { fontSize: message.size } : {}),
+												...(message.style ? { fontStyle: message.style } : {}),
+												...(message.weight ? { fontWeight: message.weight } : {}),
+											}}
+										>
+											{message.text}
+										</LogMessage>
+									)}
+								</div>
+				)}
+
+			{content && (
+				<LogContent>{getContent()}</LogContent>
+			)}
 
 				{info && (
 					<LogInfoWrapper
@@ -124,11 +144,11 @@ export const LogComponent = ({
 					>
 						<LogInfo
 							styles={{
+								...(info.align ? { textAlign: info.align } : {}),
 								...(info.color ? { color: info.color } : {}),
 								...(info.size ? { fontSize: info.size } : {}),
-								...(info.weight ? { fontWeight: info.weight } : {}),
 								...(info.style ? { fontStyle: info.style } : {}),
-								...(info.align ? { textAlign: info.align } : {}),
+								...(info.weight ? { fontWeight: info.weight } : {}),
 							}}
 						>
 							{info.text}

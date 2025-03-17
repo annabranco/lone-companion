@@ -1,6 +1,10 @@
 import { useContext, useState } from 'react';
+
 import { defaultNotificationOptions } from '../../config';
 import { LanguagesContext } from '../../contexts';
+import { NpcViewComponent } from '../../features/Generators/npcs/components/NpcViewComponent';
+import { NpcCharacteristics } from '../../features/Generators/npcs/types';
+import { GeneratedContentType } from '../../features/Generators/types';
 import { useLog } from '../../hooks';
 import {
     HidenCloseButton,
@@ -8,7 +12,9 @@ import {
     NotificationArea,
     NotificationContent,
     NotificationIcon,
+    NotificationText,
     NotificationTitle,
+    NpcNotificationWrapper,
     ProgressBar,
 } from './styled';
 import type { NotificationProps } from './types';
@@ -27,8 +33,19 @@ export const Notification = ({
     const autoClose =
         toastProps?.autoClose ?? defaultNotificationOptions.autoClose;
 
-    const { title, content, icon } = data;
+    const { 
+        content, 
+        header, 
+        icon, 
+        image,
+        message, 
+        notificationTitle,
+        title, 
+        type = GeneratedContentType.Text,
+    } = data;
 
+
+    console.log('❗Notification.tsx:45 >> notificationTitle', notificationTitle);
     const onBlurNotificationArea = () =>
         autoClose &&
         setTimeout(() => {
@@ -37,11 +54,25 @@ export const Notification = ({
 
     const logData = () => {
         log({
-            header: { text: title },
-            message: { text: content },
+            type,
+            ...(content ? { content } : {}),
+            ...(header ? { header } : {}),
+            ...(image ? { image } : {}),
+            ...(message ? { message } : {}),
+            ...(title ? { title } : {}),
         });
         closeToast();
     };
+
+    const getContent = () => {
+        if (type === GeneratedContentType.NPC) {
+            return (
+            <NpcNotificationWrapper>
+                <NpcViewComponent npc={content as NpcCharacteristics} />
+            </NpcNotificationWrapper>
+            );
+        }
+    }
 
     const handleClose = () => closeToast();
 
@@ -54,19 +85,27 @@ export const Notification = ({
 
             <HidenLogButton
                 onClick={logData}
-                visible={isCloseVisible}
                 text={getText('Log')}
+                visible={isCloseVisible}
             />
 
             {icon && <NotificationIcon src={icon} />}
 
-            {title && (
+            {notificationTitle && (
                 <NotificationTitle as="h3" withIcon={!!icon}>
-                    {title}
+                    {notificationTitle}
                 </NotificationTitle>
             )}
 
-            <NotificationContent as="p">{content}</NotificationContent>
+            {message && (
+                <NotificationText as="p" withIcon={!!icon}>{message.text}</NotificationText>
+
+            )}
+
+            {content && (
+                <NotificationContent>{getContent()}</NotificationContent>
+
+            )}
 
             {autoClose && (
                 <ProgressBar

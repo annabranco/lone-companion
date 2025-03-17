@@ -1,12 +1,13 @@
 import { useContext, useState } from 'react';
+
+import { useDice, useLog } from '.';
 import { Colors, FontSize } from '../config';
 import { LanguagesContext, SettingsContext } from '../contexts';
+import { GeneratedContentType } from '../features/Generators/types';
+import { defaultOracleOptions, ORACLE_ANSWERS_WITH_MULTIPLIERS, ORACLE_RESULT, ORACLE_RUNES, POSITIVE_LIKELY } from '../features/Oracle/constants';
 import { OracleComponent } from '../features/Oracle/OracleComponent';
 import { getOracleOptionsByWeight } from '../features/Oracle/oracleUtils';
-import { defaultOracleOptions, ORACLE_ANSWERS_WITH_MULTIPLIERS, ORACLE_RESULT, ORACLE_RUNES, POSITIVE_LIKELY } from '../features/Oracle/constants';
 import { OracleComponentProps, OracleOptions, OracleResult } from '../features/Oracle/types';
-import { useDice, useLog } from '.';
-// import { Colors, FontSize } from '../../config';
 
 export interface UseOracleReturn {
 	component: React.FC<OracleComponentProps>;
@@ -48,6 +49,7 @@ export const useOracle = (): UseOracleReturn => {
 		toggleProbabilities(false);
 
 		log({
+			type: GeneratedContentType.Oracle,
 			header: {text: `${getText('Oracle')}`},
 			...(question ? {title: {text: question, size: FontSize.small, color: Colors.blue5}} : {}),
 			message: {text: getText(oracleRoll), style: 'italic', align: 'center', size: FontSize.medium},
