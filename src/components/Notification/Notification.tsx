@@ -44,8 +44,6 @@ export const Notification = ({
         type = GeneratedContentType.Text,
     } = data;
 
-
-    console.log('❗Notification.tsx:45 >> notificationTitle', notificationTitle);
     const onBlurNotificationArea = () =>
         autoClose &&
         setTimeout(() => {

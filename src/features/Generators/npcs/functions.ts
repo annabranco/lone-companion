@@ -1,6 +1,10 @@
+import { Ancestries, Genders, PRONOUMS } from '../../../constants';
 import { chance, pickFrom, rand } from '../../../utils';
+import { LANGUAGES } from '../../../utils/i18n';
 import { getName } from '../names';
+import { ANCESTRIES, GENDERS } from '../names/constants';
 import { AGE_GROUP } from './age';
+import { Age, DESCENDENCE_TEXT, YOUNG_GENDER } from './constants';
 import { BACKGROUNDS, DEMEANORS, GOALS, QUIRKS } from './details';
 import {
   EYES_COLORS,
@@ -15,12 +19,8 @@ import {
   PREDOMINANT_HAIR_COLOR_BY_ANCESTRY,
 } from './hair';
 import { HEIGHT, WEIGHT } from './physical';
-import { Age, DESCENDENCE_TEXT, YOUNG_GENDER } from './constants';
-import { Ancestries, Genders, PRONOUMS } from '../../../constants';
-import { NpcCharacteristics, NpcGeneratorProps } from './types';
-import { ANCESTRIES, GENDERS } from '../names/constants';
 import { PREDOMINANT_SKIN_TONE_BY_ANCESTRY, SKIN_TONES } from './skin';
-import { LANGUAGES } from '../../../utils/i18n';
+import { NpcCharacteristics, NpcGeneratorProps } from './types';
 
 const getGender = (): Genders => pickFrom(GENDERS);
 
@@ -133,9 +133,8 @@ const getPresentation = ({
       .replace('Around', `around ${PRONOUMS[gender][1]}`)
       .toLowerCase()}`;
   } else {
-    presentation = `${demeanor} ${
-      age !== Age.Child ? age.toLowerCase() : ''
-    } ${genderText}`;
+    presentation = `${demeanor} ${age !== Age.Child ? age.toLowerCase() : ''
+      } ${genderText}`;
   }
   return presentation;
 };
@@ -219,6 +218,8 @@ export const generateNPC = (
     characteristics.firstName = firstName || nameData.firstName;
     characteristics.lastName = lastName || nameData.lastName || '';
     characteristics.knownName = nameData.knownName;
+  } else {
+    characteristics.knownName = `${firstName} ${lastName}`;
   }
 
   characteristics.background = getBackground({

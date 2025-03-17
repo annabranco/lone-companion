@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import { AppButton } from '../../../../components/AppButton';
 import { Typography } from '../../../../components/Typography';
-import { Colors, Fonts, FontSize } from '../../../../config';
+import { Colors, Fonts, FontSize, zIndex } from '../../../../config';
 
 export const NpcWrapper = styled.div`
   flex-direction: column;
@@ -113,4 +113,24 @@ export const NpcInneritem = styled.li`
     color: ${Colors.red5};
     margin-right: 1px;
   }
+`;
+
+export const CustomNpcForm = styled.form`
+  z-index: ${zIndex.Front};
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  gap: 15px;
+  background-color: rgba(0, 0, 0, 0.85);
+`;
+
+export const GenerateNpcButton = styled(AppButton)`
+  margin-top: 4rem;
+  font-size: ${FontSize.big};
 `;

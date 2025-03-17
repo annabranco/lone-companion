@@ -11,7 +11,7 @@ export enum FontSize {
 	xsmall = '0.625rem',
 	small = '0.75rem',
 	medium = '1rem',
-	big = '1.125rem',
+	big = '1.25rem',
 	large = '1.5rem',
 	xlarge = '1.875rem',
 	xxlarge = '2.25rem',

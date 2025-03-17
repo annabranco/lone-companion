@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 
 import { AppButton } from '../../../components/AppButton';
-import { Typography } from '../../../components/Typography';
 import { ToastDuration } from '../../../config';
 import { LanguagesContext } from '../../../contexts';
 import { useNotification } from '../../../hooks/useNotification';
@@ -11,7 +10,6 @@ import { GeneratedContentType } from '../types';
 export const NpcGenerator = () => {
 	const { getText, language } = useContext(LanguagesContext);
 	const { notify } = useNotification();
-
 
 	const getNPC = () => {
 		const npc = generateNPC({ language });
@@ -33,9 +31,7 @@ export const NpcGenerator = () => {
 
 	return (
 		<>
-			<AppButton onClick={getNPC}>
-				<Typography>{getText('Random NPC')}</Typography>
-			</AppButton>
+			<AppButton onClick={getNPC}>{getText('Random NPC')}</AppButton>
 		</>
 	);
 };
