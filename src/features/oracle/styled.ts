@@ -52,7 +52,7 @@ export const QuestionArea = styled.div`
 
 export const OracleResultImage = styled.img`
   background-color: ${({ theme }) =>
-		theme === Theme.Dark ? 'rgba(255,255,255,0.4)' : 'transparent'};
+    theme === Theme.Dark ? 'rgba(255,255,255,0.4)' : 'transparent'};
   width: 40%;
   border-radius: 30;
 `;
@@ -70,18 +70,18 @@ export const Results = styled(Typography)`
 `;
 
 export const oracleStyles = {
-	possibilityButton: css`
+  possibilityButton: css`
     width: 170px;
     box-shadow: 0 2px 5px 2px rgba(255, 255, 255, 0.25);
   `,
-	questionTitle: css`
+  questionTitle: css`
     ${GlobalStyles.comment}
     color: ${Colors.black};
     font-size: ${FontSize.medium};
     padding: 5px 10px;
     background-color: ${Colors.gray1};
   `,
-	oracleResult: css`
+  oracleResult: css`
     position: absolute;
     align-items: center;
     justify-content: space-around;

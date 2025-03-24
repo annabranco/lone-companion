@@ -6,6 +6,9 @@ import { LanguagesContext } from '../../../contexts';
 import { useNotification } from '../../../hooks/useNotification';
 import { generateNPC } from './functions';
 import { GeneratedContentType } from '../types';
+import { AppButtonDefaultIcon, AppButtonInnerContent } from '../../../components/AppButton/styled';
+import IconNpc from '../../../assets/images/icons/icon-npc-random.jpg';
+
 
 export const NpcGenerator = () => {
 	const { getText, language } = useContext(LanguagesContext);
@@ -31,7 +34,13 @@ export const NpcGenerator = () => {
 
 	return (
 		<>
-			<AppButton onClick={getNPC}>{getText('Random NPC')}</AppButton>
+			<AppButton glossy={true} onClick={getNPC}>
+				<AppButtonInnerContent>
+					<AppButtonDefaultIcon src={IconNpc} alt={getText('Random NPC')} />
+					{getText('Random NPC')}
+
+				</AppButtonInnerContent>
+			</AppButton>
 		</>
 	);
 };

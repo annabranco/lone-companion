@@ -6,6 +6,8 @@ import { Colors, ToastDuration } from '../../../config';
 import { LanguagesContext } from '../../../contexts';
 import { useNotification } from '../../../hooks/useNotification';
 import { getName } from './functions';
+import IconName from '../../../assets/images/icons/icon-name.png';
+import { AppButtonDefaultIcon, AppButtonInnerContent } from '../../../components/AppButton/styled';
 
 export const NameGenerator = () => {
 	const { getText, language } = useContext(LanguagesContext);
@@ -27,10 +29,13 @@ export const NameGenerator = () => {
 	};
 
 	return (
-		<AppButton onClick={generateRandomName}>
+		<AppButton glossy={true} onClick={generateRandomName}>
+			<AppButtonInnerContent>
+					<AppButtonDefaultIcon src={IconName} alt={getText('Random Name')} />
 			<Typography styles={{ color: Colors.white }}>
 				{getText('Random Name')}
 			</Typography>
+			</AppButtonInnerContent>
 		</AppButton>
 	);
 };
