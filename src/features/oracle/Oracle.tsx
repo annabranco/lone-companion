@@ -1,9 +1,10 @@
 import { useContext } from 'react';
-import { AppButton } from '../../components/AppButton';
-import { LanguagesContext } from '../../contexts';
-import { useOracle } from '../../hooks/useOracle';
-import IconRunes from '../../assets/images/icons/icon-runes.png';
-import { AppButtonDefaultIcon, AppButtonInnerContent } from '../../components/AppButton/styled';
+
+import { AppButton } from '@/components/AppButton';
+import { AppButtonDefaultIcon, AppButtonInnerContent } from '@/components/AppButton/styled';
+import { LanguagesContext } from '@/contexts';
+import { useOracle } from '@/hooks';
+import IconRunes from '@/images/icons/icon-runes.png';
 
 export const Oracle = () => {
 	const {

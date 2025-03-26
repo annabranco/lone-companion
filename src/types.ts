@@ -1,4 +1,4 @@
-import { SupportedLanguages } from './utils/i18n';
+import { SupportedLanguages } from '@/i18n';
 
 export interface OptionWithMultiplier<O> {
   option: O;

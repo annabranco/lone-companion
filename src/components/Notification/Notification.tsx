@@ -1,11 +1,12 @@
 import { useContext, useState } from 'react';
 
-import { defaultNotificationOptions } from '../../config';
-import { LanguagesContext } from '../../contexts';
-import { NpcViewComponent } from '../../features/Generators/npcs/components/NpcViewComponent';
-import { NpcCharacteristics } from '../../features/Generators/npcs/types';
-import { GeneratedContentType } from '../../features/Generators/types';
-import { useLog } from '../../hooks';
+import { defaultNotificationOptions } from '@/config';
+import { LanguagesContext } from '@/contexts';
+import { NpcViewComponent } from '@/features/Generators/npcs/NpcGenerator/components/NpcViewComponent';
+import { NpcCharacteristics } from '@/features/Generators/npcs/types';
+import { GeneratedContentType } from '@/features/Generators/types';
+import { useLog } from '@/hooks';
+
 import {
     HidenCloseButton,
     HidenLogButton,
@@ -33,14 +34,14 @@ export const Notification = ({
     const autoClose =
         toastProps?.autoClose ?? defaultNotificationOptions.autoClose;
 
-    const { 
-        content, 
-        header, 
-        icon, 
+    const {
+        content,
+        header,
+        icon,
         image,
-        message, 
+        message,
         notificationTitle,
-        title, 
+        title,
         type = GeneratedContentType.Text,
     } = data;
 
@@ -65,9 +66,9 @@ export const Notification = ({
     const getContent = () => {
         if (type === GeneratedContentType.NPC) {
             return (
-            <NpcNotificationWrapper>
-                <NpcViewComponent npc={content as NpcCharacteristics} />
-            </NpcNotificationWrapper>
+                <NpcNotificationWrapper>
+                    <NpcViewComponent npc={content as NpcCharacteristics} />
+                </NpcNotificationWrapper>
             );
         }
     }

@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
-import { Colors } from '../../config';
 import { css } from '@emotion/react';
+
+import { Colors } from '@/config';
+
 import type { ToggleStyles } from './types';
 
 export const ToggleWrapper = styled.div`

@@ -1,9 +1,10 @@
-import AlumniSans from './assets/fonts/AlumniSans.ttf';
-import AlumniSansLight from './assets/fonts/AlumniSansLight.ttf';
-import MedievalSharp from './assets/fonts/MedievalSharp.ttf';
-import NorseBoldFont from './assets/fonts/NorseBold.otf';
-import NorseFont from './assets/fonts/Norse.otf';
 import { CSSObject } from '@emotion/react';
+
+import AlumniSans from '@/assets/fonts/AlumniSans.ttf';
+import AlumniSansLight from '@/assets/fonts/AlumniSansLight.ttf';
+import MedievalSharp from '@/assets/fonts/MedievalSharp.ttf';
+import NorseBoldFont from '@/assets/fonts/NorseBold.otf';
+import NorseFont from '@/assets/fonts/Norse.otf';
 
 export const globalStylesDefinitions: CSSObject[] = [
   {

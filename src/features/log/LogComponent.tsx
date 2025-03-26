@@ -2,12 +2,13 @@
 
 import { useContext, useState } from 'react';
 
-import { Colors } from '../../config';
-import { LanguagesContext, Log, SettingsContext } from '../../contexts';
-import { useLog } from '../../hooks';
-import { NpcViewComponent } from '../Generators/npcs/components/NpcViewComponent';
-import { NpcCharacteristics } from '../Generators/npcs/types';
-import { GeneratedContentType } from '../Generators/types';
+import { Colors } from '@/config';
+import { LanguagesContext, Log, SettingsContext } from '@/contexts';
+import { GeneratedContentType } from '@/features/Generators';
+import { NpcCharacteristics } from '@/features/Generators/npcs';
+import { NpcViewComponent } from '@/features/Generators/npcs/NpcGenerator/components';
+import { useLog } from '@/hooks';
+
 import {
 	LogContent,
 	LogContentArea,

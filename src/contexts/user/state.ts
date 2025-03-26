@@ -1,6 +1,8 @@
 import { getAuth } from '@firebase/auth';
 import { useCallback, useState } from 'react';
-import { firebaseApp } from '../../config/firebase';
+
+import { firebaseApp } from '@/config/firebase';
+
 import { AuthData, User } from './types';
 
 export const useUserState = () => {

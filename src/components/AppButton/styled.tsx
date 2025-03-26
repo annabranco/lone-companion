@@ -1,6 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Colors } from '../../config';
+
+import { Colors } from '@/config';
+
 import { ButtonProps } from './types';
 
 const ButtonKinds = {

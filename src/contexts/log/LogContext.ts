@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+
 import { LogContextInterface } from './types';
 
 const defaultContext = {

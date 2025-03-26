@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { zIndex } from '../../config';
+
+import { zIndex } from '@/config';
 
 export const LanguageSelectorWrapper = styled.div`
   display: flex;

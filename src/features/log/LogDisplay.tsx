@@ -1,10 +1,11 @@
 /** @jsxImportSource @emotion/react */
 
 import { useContext, useState } from 'react';
-import { Typography } from '../../components/Typography';
-import { BackgroundColor, Colors, FontSize, zIndex } from '../../config';
-import { LanguagesContext, SettingsContext } from '../../contexts';
-import { useLog } from '../../hooks';
+import { Typography } from '@/components/Typography';
+import { BackgroundColor, Colors, FontSize, zIndex } from '@/config';
+import { LanguagesContext, SettingsContext } from '@/contexts';
+import { useLog } from '@/hooks';
+
 import { LogComponent } from './LogComponent';
 import { LogContainer, LogList, LogListWrapper } from './styled';
 

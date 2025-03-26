@@ -4,14 +4,14 @@ import type {
     ToastPosition,
 } from 'react-toastify';
 
-import type { ToastDuration } from '../../config';
-import { NpcCharacteristics } from '../../features/Generators/npcs/types';
-import { 
-    GeneratedContentType, 
-    GeneratedImage ,
-    GeneratedText, 
-    GeneratedTextExtended, 
-} from '../../features/Generators/types';
+import type { ToastDuration } from '@/config';
+import { NpcCharacteristics } from '@/features/Generators/npcs/types';
+import {
+    GeneratedContentType,
+    GeneratedImage,
+    GeneratedText,
+    GeneratedTextExtended,
+} from '@/features/Generators/types';
 
 export interface NotificationCustomOptions {
     backgroundColor?: string;

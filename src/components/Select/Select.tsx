@@ -3,10 +3,11 @@
 import { css } from '@emotion/react';
 import { useContext, useState } from 'react';
 
-import { Colors, OverlayBackground } from '../../config';
-import { LanguagesContext, SettingsContext } from '../../contexts';
-import { Theme } from '../../types';
-import { Typography } from '../Typography';
+import { Typography } from '@/components/Typography';
+import { Colors, OverlayBackground } from '@/config';
+import { LanguagesContext, SettingsContext } from '@/contexts';
+import { Theme } from '@/types';
+
 import {
 	SelectButton,
 	SelectButtonText,

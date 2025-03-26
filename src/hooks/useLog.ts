@@ -1,6 +1,6 @@
 import { useCallback, useContext } from 'react';
 
-import { Log, LogContext, LogMessageId, RawLog } from '../contexts/log';
+import { Log, LogContext, LogMessageId, RawLog } from '@/contexts';
 
 interface UseLogReturn {
 	deleteAllLogs: () => void;

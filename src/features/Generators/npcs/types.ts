@@ -1,6 +1,7 @@
-import {Ancestries, Genders} from '../../../constants';
-import {SupportedLanguages} from '../../../utils/i18n';
-import {Age, Height, Weight} from './constants';
+import { Genders } from '@/constants';
+import { SupportedLanguages } from '@/i18n';
+
+import { Age, Ancestries, Height, Weight } from './data';
 
 export interface NpcCharacteristics {
 	age: Age;
@@ -31,4 +32,18 @@ export interface NpcGeneratorProps {
 	gender?: Genders;
 	lastName?: string;
 	language: SupportedLanguages;
+}
+
+export interface NpcUpdates {
+	age?: string;
+	ancestry?: string;
+	background?: string;
+	demeanor?: string;
+	hair?: string;
+	height?: string;
+	quirk?: string;
+	weight?: string;
+}
+export interface Nicknames {
+	[nickname: string]: NpcUpdates;
 }

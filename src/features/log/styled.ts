@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-
 import { css } from '@emotion/react';
-import { AppButton } from '../../components/AppButton';
-import { Typography } from '../../components/Typography';
-import { Colors, Fonts, FontSize } from '../../config';
-import { Theme } from '../../types';
+
+import { AppButton } from '@/components/AppButton';
+import { Typography } from '@/components/Typography';
+import { Colors, Fonts, FontSize } from '@/config';
+import { Theme } from '@/types';
 
 export const LogContainer = styled.div`
         position: absolute;

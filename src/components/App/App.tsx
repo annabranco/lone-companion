@@ -1,16 +1,18 @@
 import { Global } from '@emotion/react';
 import { ToastContainer } from 'react-toastify';
 
+
+// import { Header } from '@/components/Header/Header';
+import { zIndex } from '@/config';
 import {
   LanguagesProvider,
   LogProvider,
   SettingsProvider,
-} from '../../contexts';
-import { globalStylesDefinitions } from '../../styled';
+  UserProvider,
+} from '@/contexts';
+import { globalStylesDefinitions } from '@/styled';
+
 import { Main } from '../Main';
-// import { Header } from './components/Header/Header';
-import { zIndex } from '../../config';
-import { UserProvider } from '../../contexts/user/UserProvider';
 import './resetStyles.css';
 
 export const App = () => {

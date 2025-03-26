@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-import { Colors, Fonts, FontSize, zIndex } from '../../config';
-import { AppButton } from '../AppButton';
-import { Typography } from '../Typography';
+import { AppButton } from '@/components/AppButton';
+import { Typography } from '@/components/Typography';
+import { Colors, Fonts, FontSize, zIndex } from '@/config';
 
 export const SelectComponent = styled.div`
   z-index: ${zIndex.Top};

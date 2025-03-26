@@ -3,11 +3,12 @@
 import { faGear } from '@fortawesome/free-solid-svg-icons/faGear';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext, useState } from 'react';
-import { Toggle } from '../../components/Toggle/Toggle';
-import { Colors, OverlayBackground, TextColor } from '../../config';
-import { LanguagesContext } from '../../contexts/languages/LanguagesContext';
-import { SettingsContext } from '../../contexts/settings/SettingsContext';
-import { Theme } from '../../types';
+
+import { Toggle } from '@/components/Toggle';
+import { Colors, OverlayBackground, TextColor } from '@/config';
+import { LanguagesContext, SettingsContext } from '@/contexts';
+import { Theme } from '@/types';
+
 import { LanguageSelector } from '../LanguageSelector';
 import {
 	BackButton,

@@ -1,5 +1,4 @@
-import { ToggleInput, ToggleLabel, ToggleWrapper } from './styled';
-import type { ToggleProps } from './types';
+import { ToggleInput, ToggleLabel, ToggleProps, ToggleWrapper } from './';
 
 export const Toggle = ({ backgroundColor, buttonColor, isOn, name, onValueChange }: ToggleProps) => {
     const onToggle = (event: React.ChangeEvent<HTMLInputElement>) => {

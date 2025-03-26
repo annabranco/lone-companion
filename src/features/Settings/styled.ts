@@ -1,8 +1,9 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { AppButton } from '../../components/AppButton';
-import { Typography } from '../../components/Typography';
-import { Colors, zIndex } from '../../config';
+
+import { AppButton } from '@/components/AppButton';
+import { Typography } from '@/components/Typography';
+import { Colors, zIndex } from '@/config';
 
 export const SettingsButton = styled(AppButton)`
   display: flex;

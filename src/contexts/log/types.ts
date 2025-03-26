@@ -1,7 +1,7 @@
 import { DocumentData } from 'firebase/firestore';
 
-import { NpcCharacteristics } from '../../features/Generators/npcs/types';
-import { GeneratedTextExtended, GeneratedContentType, GeneratedText, GeneratedImage } from '../../features/Generators/types';
+import { NpcCharacteristics } from '@/features/Generators/npcs/types';
+import { GeneratedTextExtended, GeneratedContentType, GeneratedText, GeneratedImage } from '@/features/Generators/types';
 
 export type LogMessageId = string;
 

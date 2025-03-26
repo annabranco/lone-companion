@@ -1,4 +1,5 @@
 import { createContext, useContext } from 'react';
+
 import { IUserContext } from './types';
 
 const defaultContent = {

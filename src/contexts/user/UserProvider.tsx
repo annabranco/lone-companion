@@ -1,8 +1,10 @@
 import { PropsWithChildren, useCallback, useState } from 'react';
+import { getAuth } from 'firebase/auth';
+
+import { firebaseApp } from '@/config';
+
 import { UserContext } from './UserContext';
 import type { AuthData, User } from './types';
-import { getAuth } from 'firebase/auth';
-import { firebaseApp } from '../../config/firebase';
 
 export const UserProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [user, updateUser] = useState<User | null>(null);

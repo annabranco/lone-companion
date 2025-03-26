@@ -1,8 +1,9 @@
 import { useContext, useState } from 'react';
-import { AppButton } from '../../components/AppButton/AppButton';
-import { SupportedLanguages, ExtendedTranslatedLanguages } from '../../utils/i18n/types';
-import { LanguagesContext } from '../../contexts/languages/LanguagesContext';
-import { SettingsContext } from '../../contexts/settings/SettingsContext';
+
+import { AppButton } from '@/components/AppButton/AppButton';
+import { LanguagesContext, SettingsContext } from '@/contexts';
+import { ExtendedTranslatedLanguages, SupportedLanguages } from '@/i18n/types';
+
 import { LanguagButtonsArea, LanguageSelectorButtonsOverlay, LanguageSelectorWrapper } from './styled';
 
 const SUPPORTED_LANGUAGES: ExtendedTranslatedLanguages = {

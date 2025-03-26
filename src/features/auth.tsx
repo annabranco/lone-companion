@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { auth, googleProvider } from '../config/firebase';
+import { auth, googleProvider } from 'config/firebase';
 import { createUserWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
-import { withErrorHandler } from '../utils/withErrorHandler';
-import { useUserContext } from '../contexts/user/UserContext';
-import { AuthData } from '../contexts/user/types';
+import { withErrorHandler } from 'utils/withErrorHandler';
+import { useUserContext } from 'contexts/user/UserContext';
+import { AuthData } from 'contexts/user/types';
 
 enum AUTH_FIELDS {
   EMAIL = 'email',

@@ -1,9 +1,11 @@
 import { PropsWithChildren, useCallback } from 'react';
+
+import { defaultState } from '@/config';
+import { Genders } from '@/constants';
+import { LOCAL_STORAGE_KEYS, useLocalStorage } from '@/hooks';
+import { SupportedLanguages, translate } from '@/i18n';
+
 import { LanguagesContext } from './LanguagesContext';
-import { Genders } from '../../constants';
-import { SupportedLanguages, translate } from '../../utils/i18n';
-import { LOCAL_STORAGE_KEYS, useLocalStorage } from '../../hooks/useLocalStorage';
-import { defaultState } from '../../config/defaultState';
 
 export const LanguagesProvider = ({ children }: PropsWithChildren) => {
 	  const [language, changeUserLanguage] = useLocalStorage(LOCAL_STORAGE_KEYS.LANGUAGE, defaultState.language);

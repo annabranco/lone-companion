@@ -1,8 +1,10 @@
 import { PropsWithChildren, useCallback } from 'react';
+
+import { defaultState } from '@/config';
+import { LOCAL_STORAGE_KEYS, useLocalStorage } from '@/hooks';
+import { Theme } from '@/types';
+
 import { SettingsContext } from './SettingsContext';
-import { Theme } from '../../types';
-import { LOCAL_STORAGE_KEYS, useLocalStorage } from '../../hooks/useLocalStorage';
-import { defaultState } from '../../config/defaultState';
 
 export const SettingsProvider = ({ children }: PropsWithChildren) => {
 	const [settings, saveSettings] = useLocalStorage(LOCAL_STORAGE_KEYS.SETTINGS, defaultState.settings);

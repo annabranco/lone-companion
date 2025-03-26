@@ -4,7 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 import stylistic from '@stylistic/eslint-plugin';
-import eslintPluginImportX from 'eslint-plugin-import-x'
+import eslintPluginImportX from 'eslint-plugin-import-x';
 
 export default tseslint.config(
   eslintPluginImportX.flatConfigs.recommended,
@@ -32,18 +32,18 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'react-refresh/only-export-components': ['warn',
+        { allowConstantExport: true }],
       '@stylistic/jsx-wrap-multilines': [0, 'parens-new-line'],
       '@stylistic/jsx-first-prop-new-line': [0, 'multiline'],
       '@stylistic/quotes': [
-        'error', 
-        'single', 
-        { avoidEscape: true },
-      ],
-      '@stylistic/array-element-newline': ['error', {
-        ArrayExpression: 'consistent',
-        ArrayPattern: { minItems: 3 },
-      }],
+'error', 'single', { avoidEscape: true },
+],
+      '@stylistic/array-element-newline': ['error',
+        {
+          ArrayExpression: 'consistent',
+          ArrayPattern: { minItems: 3 },
+        }],
       '@stylistic/array-bracket-newline': ['error', { minItems: 3 }],
       '@stylistic/block-spacing': 'error',
       '@stylistic/comma-dangle': ['error', 'always-multiline'],

@@ -1,9 +1,10 @@
-import { PropsWithChildren, useCallback, useEffect, useState } from 'react';
 import { addDoc, collection, deleteDoc, doc, DocumentData, getDocs, getFirestore } from 'firebase/firestore';
+import { PropsWithChildren, useCallback, useEffect, useState } from 'react';
 
-import { auth, firebaseApp } from '../../config/firebase';
-import { Log, LogMessageId, RawLog } from './types';
+import { auth, firebaseApp } from '@/config';
+
 import { LogContext } from './LogContext';
+import { Log, LogMessageId, RawLog } from './types';
 
 const db = getFirestore(firebaseApp);
 const logsCollection = collection(db, 'logs');

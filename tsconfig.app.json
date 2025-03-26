@@ -22,7 +22,19 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@/images/*": [
+        "src/assets/images/*"
+      ],
+      "@/sounds/*": [
+        "src/assets/sounds/*"
+      ],
+    }
   },
   "include": [
     "src"

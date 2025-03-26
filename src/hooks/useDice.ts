@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { rand } from '../utils';
-import { diceSound } from '../assets';
+import { rand } from '@/utils';
+import { diceSound } from '@/sounds/index';
+
 import { useSound } from './useSound';
 
 enum die {

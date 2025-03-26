@@ -1,5 +1,6 @@
 import { createContext } from 'react';
-import { LANGUAGES, SupportedLanguages } from '../../utils/i18n';
+ 
+import { LANGUAGES, SupportedLanguages } from '@/i18n';
 
 export interface LanguagesContextInterface {
 	changeLanguage: (language: SupportedLanguages) => void;

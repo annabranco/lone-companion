@@ -1,8 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { PropsWithChildren, useContext } from 'react';
-import { TextColor } from '../../config';
-import { SettingsContext } from '../../contexts';
+
+import { TextColor } from '@/config';
+import { SettingsContext } from '@/contexts';
+
 import { TypographyProps } from './types';
 
 export const Typography = ({ as = 'p', children, ...props }: PropsWithChildren<TypographyProps>) => (
