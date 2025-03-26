@@ -1,13 +1,13 @@
 import { createContext, useContext } from 'react';
 
-import { IUserContext } from './types';
+import type { UserContextInterface } from './types';
 
 const defaultContent = {
   getUser: () => null,
   setUser: () => null,
 };
 
-export const UserContext = createContext<IUserContext>(defaultContent);
+export const UserContext = createContext<UserContextInterface>(defaultContent);
 
 export const useUserContext = () => {
   const context = useContext(UserContext);

@@ -1,4 +1,4 @@
-import {POSITIVE_LIKELY} from '../../hooks/useOracle/constants';
+import { POSITIVE_LIKELY } from '@/hooks';
 
 export interface OracleOptions {
 	chance: POSITIVE_LIKELY;

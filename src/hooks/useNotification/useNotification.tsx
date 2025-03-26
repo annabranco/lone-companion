@@ -2,11 +2,11 @@ import { css, cx } from '@emotion/css';
 import { toast, type ToastContentProps } from 'react-toastify';
 
 import { Notification } from '@/components/Notification';
+import { Colors, defaultNotificationOptions } from '@/config';
 import type {
     NotificationCustomOptions,
     NotificationData,
-} from '@/components/Notification/types';
-import { Colors, defaultNotificationOptions } from '@/config';
+} from '.';
 
 export const useNotification = () => {
     const notify = (

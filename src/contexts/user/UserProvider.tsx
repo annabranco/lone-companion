@@ -4,7 +4,7 @@ import { getAuth } from 'firebase/auth';
 import { firebaseApp } from '@/config';
 
 import { UserContext } from './UserContext';
-import type { AuthData, User } from './types';
+import type { AuthData, User } from './';
 
 export const UserProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [user, updateUser] = useState<User | null>(null);

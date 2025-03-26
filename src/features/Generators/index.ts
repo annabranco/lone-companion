@@ -1,2 +1,2 @@
 export * from './Generators';
-export * from './types';
+export * from './types.ts';

@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 
 import { firebaseApp } from '@/config/firebase';
 
-import { AuthData, User } from './types';
+import type { AuthData, User } from './';
 
 export const useUserState = () => {
   const [user, updateUser] = useState<User | null>(null);

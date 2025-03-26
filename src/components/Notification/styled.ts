@@ -75,10 +75,17 @@ export const HidenLogButton = styled(HiddenButton) <{ text: string }>`
   }
 `;
 
-export const NotificationTitle = styled(Typography) <{ withIcon: boolean }>`
+export const NotificationTitleAdjustment = styled.div<{ withIcon: boolean }>`
+
+  & > h3 {
+    margin-left: ${({ withIcon }) => (withIcon ? '40px' : '10px')};
+  }
+`;
+
+export const NotificationTitle = styled(Typography)`
   position: absolute;
   top: 0px;
-  left: ${({ withIcon }) => (withIcon ? '40px' : '10px')};
+  left: 10px;
   font-size: ${FontSize.medium};
   text-align: left;
   color: ${Colors.pink4};
@@ -99,9 +106,14 @@ export const NotificationIcon = styled.img`
   background: red;
 `;
 
-export const NotificationText = styled(Typography)<{ withIcon: boolean }>`
+export const NotificationTextAdjustment = styled.div<{ withIcon: boolean }>`
+  margin-left: ${({ withIcon }) => (withIcon ? '10px' : '0px')};
+`;
+
+
+export const NotificationText = styled(Typography)`
   margin-top: 10px;
-  margin-left: ${({ withIcon }) => (withIcon ? '20px' : '10px')};
+  margin-left: 10px;
 
   font-size: ${FontSize.big};
   color: ${Colors.black};

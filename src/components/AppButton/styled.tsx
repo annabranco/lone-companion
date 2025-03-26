@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import { Colors } from '@/config';
 
-import { ButtonProps } from './types';
+import type { ButtonProps } from '.';
 
 const ButtonKinds = {
   primary: css`

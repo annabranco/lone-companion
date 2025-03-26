@@ -28,8 +28,7 @@ import {
   WEIGHT,
   YOUNG_GENDER,
 } from '../data';
-import { getName } from '../NameGenerator';
-import { NpcCharacteristics, NpcGeneratorProps } from '../types';
+import { getName, type NpcCharacteristics, type NpcGeneratorProps } from '../';
 
 const getGender = (): Genders => pickFrom(GENDERS);
 

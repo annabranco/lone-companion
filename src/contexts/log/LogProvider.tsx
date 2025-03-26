@@ -4,7 +4,7 @@ import { PropsWithChildren, useCallback, useEffect, useState } from 'react';
 import { auth, firebaseApp } from '@/config';
 
 import { LogContext } from './LogContext';
-import { Log, LogMessageId, RawLog } from './types';
+import type { Log, LogMessageId, RawLog } from './';
 
 const db = getFirestore(firebaseApp);
 const logsCollection = collection(db, 'logs');

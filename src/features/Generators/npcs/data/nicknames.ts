@@ -1,6 +1,6 @@
 import { Nicknames, NpcUpdates } from '../types';
 
-const NICKNAMES: Nicknames = {
+export const NICKNAMES: Nicknames = {
 	'Admiral': { quirk: '[PRON] is an excellent navigator' },
 	'Asleep': {},
 	'Baby': { quirk: '[PRON] is afraid of the dark' },

@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 
 import { Colors } from '@/config';
 
-import type { ToggleStyles } from './types';
+import type { ToggleStyles } from '.';
 
 export const ToggleWrapper = styled.div`
     position: relative;

@@ -1,22 +1,26 @@
 import { Genders } from '@/constants';
 import { chance, pickFrom } from '@/utils';
-import { LANGUAGES, SupportedLanguages } from '@/i18n';
+import { LANGUAGES, SupportedLanguages, translate } from '@/i18n';
 
 import {
+	Ancestries,
 	ANCESTRIES,
 	ANCESTRIES_LIST_ON_NICKNAMES,
 	FEMALE_NAMES,
 	GENDERS,
 	MALE_NAMES,
+	Nickname,
+	NICKNAME_LIST,
+	NICKNAMES,
 } from '../data';
-import { Name, NameProps } from './types';
+import type { Name, NameProps } from './';
 
 const getGender = (): Genders => pickFrom(GENDERS);
 
 const getFirstName = ({ gender, ancestry }: NameProps): string =>
 	gender === Genders.Woman
-		? pickFrom(FEMALE_NAMES[ancestry])
-		: pickFrom(MALE_NAMES[ancestry]);
+		? pickFrom(FEMALE_NAMES[ancestry as Ancestries])
+		: pickFrom(MALE_NAMES[ancestry as Ancestries]);
 
 const getParentName = ({ gender, ancestry }: NameProps): string => {
 	const DESCENDENCE_TEXT = {
@@ -29,8 +33,8 @@ const getParentName = ({ gender, ancestry }: NameProps): string => {
 	const parentGender = getGender();
 
 	return `, ${title} of ${parentGender === Genders.Woman
-			? pickFrom(FEMALE_NAMES[ancestry])
-			: pickFrom(MALE_NAMES[ancestry])
+			? pickFrom(FEMALE_NAMES[ancestry as Ancestries])
+			: pickFrom(MALE_NAMES[ancestry as Ancestries])
 		}`;
 };
 

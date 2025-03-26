@@ -17,7 +17,7 @@ import oracleResultImageFutharkYesBut from '@/assets/oracle/oracle_yes-but.png';
 import oracleResultImageFutharkYes from '@/assets/oracle/oracle_yes.png';
 import oracleResultImageFutharkYesAnd from '@/assets/oracle/oracle_yes-and.png';
 
-import { OracleOptions } from '../../features/Oracle/types';
+import type { OracleOptions } from '@/features/Oracle';
 
 const TEXT_NO_AND = 'No, and...';
 const TEXT_NO = 'No';

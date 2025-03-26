@@ -1,4 +1,4 @@
-import { SupportedLanguages } from '@/i18n';
+import type { SupportedLanguages } from '@/i18n';
 
 export interface OptionWithMultiplier<O> {
   option: O;
@@ -22,10 +22,10 @@ export interface SettingsState {
 
 export type LanguagesState = SupportedLanguages;
 
-export interface LoadedData {
-  settings: SettingsState;
-  language: SupportedLanguages;
-}
+// export interface LoadedData {
+//   settings: SettingsState;
+//   language: SupportedLanguages;
+// }
 
 export interface EventsProps {
   onMouseOver?(event: React.MouseEvent): void;

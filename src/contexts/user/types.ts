@@ -14,7 +14,7 @@ interface IUser {
 
 export type User = IUser | null;
 
-export interface IUserContext {
+export interface UserContextInterface {
     getUser: () => User;
     setUser: (data: AuthData) => void;
 }

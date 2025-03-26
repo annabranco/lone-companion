@@ -2,9 +2,8 @@ import { useContext, useState } from 'react';
 
 import { defaultNotificationOptions } from '@/config';
 import { LanguagesContext } from '@/contexts';
-import { NpcViewComponent } from '@/features/Generators/npcs/NpcGenerator/components/NpcViewComponent';
-import { NpcCharacteristics } from '@/features/Generators/npcs/types';
-import { GeneratedContentType } from '@/features/Generators/types';
+import { GeneratedContentType } from '@/features/Generators';
+import { type NpcCharacteristics, NpcViewComponent } from '@/features/Generators/npcs';
 import { useLog } from '@/hooks';
 
 import {
@@ -13,12 +12,14 @@ import {
     NotificationArea,
     NotificationContent,
     NotificationIcon,
+    NotificationTextAdjustment,
     NotificationText,
     NotificationTitle,
+    NotificationTitleAdjustment,
     NpcNotificationWrapper,
     ProgressBar,
 } from './styled';
-import type { NotificationProps } from './types';
+import type { NotificationProps } from '.';
 
 export const Notification = ({
     closeToast,
@@ -91,14 +92,18 @@ export const Notification = ({
             {icon && <NotificationIcon src={icon} />}
 
             {notificationTitle && (
-                <NotificationTitle as="h3" withIcon={!!icon}>
-                    {notificationTitle}
-                </NotificationTitle>
+                <NotificationTitleAdjustment withIcon={!!icon}>
+                    <NotificationTitle as="h3">
+                        {notificationTitle}
+                    </NotificationTitle>
+                </NotificationTitleAdjustment>
+
             )}
 
             {message && (
-                <NotificationText as="p" withIcon={!!icon}>{message.text}</NotificationText>
-
+                <NotificationTextAdjustment withIcon={!!icon}>
+                    <NotificationText as="p">{message.text}</NotificationText>
+                </NotificationTextAdjustment>
             )}
 
             {content && (

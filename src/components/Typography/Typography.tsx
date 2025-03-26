@@ -5,7 +5,7 @@ import { PropsWithChildren, useContext } from 'react';
 import { TextColor } from '@/config';
 import { SettingsContext } from '@/contexts';
 
-import { TypographyProps } from './types';
+import type { TypographyProps } from '.';
 
 export const Typography = ({ as = 'p', children, ...props }: PropsWithChildren<TypographyProps>) => (
 	<TypographyElement as={as} {...props}>
