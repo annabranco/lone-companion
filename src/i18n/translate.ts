@@ -1,20 +1,15 @@
 import { Genders } from '@/constants';
 import { TRANSLATIONS } from './translations';
-import { SupportedLanguages } from './types';
+import { ObjectToTranslate } from './types';
 
 export const gendersForTranslation = {
-	[Genders.Woman]: 'woman',
-	[Genders.Man]: 'man',
-	[Genders.GNC]: 'gnc',
+	[Genders.Woman]: 'feminine',
+	[Genders.Man]: 'masculine',
+	[Genders.GNC]: 'neutral',
 };
 
-interface Translate {
-	text: string;
-	genderModifier?: Genders;
-	language: SupportedLanguages;
-}
-
-export const translate = ({ text, genderModifier, language }: Translate) => {
+// translate function is kept outside of LanguageProvider so it is not limited to a custom hook and could be called from any other function
+export const translate = ({ text, genderModifier, language }: ObjectToTranslate) => {
 	if (genderModifier) {
 		const textWithModifier = `${text}::${gendersForTranslation[genderModifier]}`;
 
@@ -27,5 +22,14 @@ export const translate = ({ text, genderModifier, language }: Translate) => {
 		}
 	}
 
-	return TRANSLATIONS[text] ? TRANSLATIONS[text][language] : text;
+	if (TRANSLATIONS[text]) {
+		return TRANSLATIONS[text][language];
+	} 
+	
+	// This is to avoid translation errors if a term has only gendered translations and not a plain one.	
+	if (TRANSLATIONS[`${text}::${[gendersForTranslation[Genders.Man]]}`]) {
+		return TRANSLATIONS[`${text}::${[gendersForTranslation[Genders.Man]]}`][language];
+	}
+	
+	return text;
 };

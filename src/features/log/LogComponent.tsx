@@ -6,7 +6,6 @@ import { Colors } from '@/config';
 import { LanguagesContext, Log, SettingsContext } from '@/contexts';
 import { GeneratedContentType } from '@/features/Generators';
 import { NpcCharacteristics } from '@/features/Generators/npcs';
-import { NpcViewComponent } from '@/features/Generators/npcs/NpcGenerator/components';
 import { useLog } from '@/hooks';
 
 import {
@@ -25,6 +24,7 @@ import {
 	LogWrapper,
 	TimeStamp,
 } from './styled';
+import { NpcViewComponent } from '@/components/NpcView';
 
 const getFormattedDate = (timestamp: Date | string) => {
 	const date = new Date(timestamp).toLocaleString();

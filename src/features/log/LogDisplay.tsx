@@ -40,7 +40,7 @@ export const LogDisplay = () => {
 							</li>
 						))
 					) : (
-						<Typography>{getText('Your log is still empty')}</Typography>
+						<Typography>{getText('Your log is empty')}</Typography>
 					)}
 				</LogList>
 			</LogListWrapper>

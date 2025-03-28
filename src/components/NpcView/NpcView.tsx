@@ -15,11 +15,13 @@ import {
 	NpcPresentation,
 	NpcSection,
 	NpcSectionTitle,
-	type NpcViewComponentProps,
 	NpcWrapper,
-} from './';
+} from '@/features/Generators/npcs/NpcGenerator';
 
-export const NpcViewComponent = ({ npc }: NpcViewComponentProps) => {
+import { NpcViewProps } from '.';
+import { gendersForTranslation } from '@/i18n';
+
+export const NpcViewComponent = ({ npc }: NpcViewProps) => {
 	const { knownName, gender, background, presentation, goal, height, weight, hair, eyes, facialHair, quirks, skin } = npc;
 	const [displayGoal, toggleDisplayGoal] = useState(false);
 	const { getText } = useContext(LanguagesContext);
@@ -30,7 +32,7 @@ export const NpcViewComponent = ({ npc }: NpcViewComponentProps) => {
 				<NpcName>{knownName}</NpcName>
 			</NpcnameWrapper>
 
-			<NpcBackground>{background ? `${background}` : getText(`Child::${gender}`)}</NpcBackground>
+			<NpcBackground>{background ? `${background}` : getText(`Child::${gendersForTranslation[gender]}`)}</NpcBackground>
 
 			<NpcSection>
 				<NpcPresentation>{presentation}</NpcPresentation>

@@ -29,7 +29,8 @@ interface SelectProps {
 
 export const Select = ({ onSelect, options }: SelectProps) => {
 	const [isSelectOpen, toggleSelect] = useState(false);
-	const [optionSelected, changeOptionSelected] = useState('');
+	const [selectedOption, changeSelectedOption] = useState('');
+	const [selectedOptionLabel, changeSelectedOptionLabel] = useState('');
 	const { getText } = useContext(LanguagesContext);
 	const { theme } = useContext(SettingsContext);
 
@@ -50,7 +51,7 @@ export const Select = ({ onSelect, options }: SelectProps) => {
 
 	const onClickSelect = () => {
 		if (onSelect) {
-			onSelect(optionSelected);
+			onSelect(selectedOption);
 		}
 		toggleSelect(false);
 	};
@@ -58,7 +59,10 @@ export const Select = ({ onSelect, options }: SelectProps) => {
 	const onChangeOption = (event: React.ChangeEvent<HTMLSelectElement>) => {
 		const { value } = event.currentTarget;
 
-		changeOptionSelected(value);
+		const { label } = options.filter(option => option.value === value)[0];
+
+		changeSelectedOption(value);
+		changeSelectedOptionLabel(label);
 	};
 
 	return (
@@ -69,14 +73,14 @@ export const Select = ({ onSelect, options }: SelectProps) => {
 				styles={themeColors.selectButon}
 			>
 				<SelectButtonText styles={themeColors.selectButtonText}>
-					{optionSelected || getDefaultOption()}
+					{selectedOptionLabel || getDefaultOption()}
 				</SelectButtonText>
 			</SelectButton>
 
 			{isSelectOpen && (
 				<SelectComponent css={OverlayBackground[theme]}>
 					<SelectElement
-						defaultValue={optionSelected}
+						defaultValue={selectedOption}
 						onChange={onChangeOption}
 					>
 						{options.map((option) => (

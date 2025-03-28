@@ -1,3 +1,6 @@
+import { Genders } from '@/constants';
+import { SupportedLanguages } from '@/i18n';
+
 export enum LANGUAGES {
 	en = 'en',
 	es = 'es',
@@ -12,7 +15,7 @@ enum EXTENDED_LANGUAGES {
 }
 
 export interface TranslatedLanguages {
-	[LANGUAGES.en]: string;
+	[LANGUAGES.en]?: string;
 	[LANGUAGES.es]: string;
 	[LANGUAGES.pt]: string;
 }
@@ -28,4 +31,9 @@ export type SupportedLanguages = keyof TranslatedLanguages;
 
 export interface Translations {
 	[key: string]: ExtendedTranslatedLanguages;
+}
+export interface ObjectToTranslate {
+	text: string;
+	genderModifier?: Genders;
+	language: SupportedLanguages;
 }

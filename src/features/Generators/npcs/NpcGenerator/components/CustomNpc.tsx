@@ -20,9 +20,6 @@ export const CustomNpc = () => {
   const [firstName, updateFirstName] = useState('');
   const [lastName, updateLastName] = useState('');
   const [gender, changeGender] = useState<Genders>();
-
-  console.log('❗️ CustomNpc.tsx:24 >> gender', gender);
-
   const [ancestry, changeAncestry] = useState<Ancestries>();
   const [age, changeAge] = useState<Age>();
   const [background, updateBackground] = useState('');
@@ -76,7 +73,7 @@ export const CustomNpc = () => {
               default: true,
             },
             ...Object.values(Genders).map((gender) => ({
-              label: gender,
+              label: getText(gender),
               value: gender,
             }))]}
             onSelect={(gender) => changeGender(gender as Genders)}
@@ -89,7 +86,7 @@ export const CustomNpc = () => {
               default: true,
             },
             ...ANCESTRIES_LIST.map((ancestry) => ({
-              label: ancestry,
+              label: getText(ancestry, gender),
               value: ancestry,
             }))]}
             onSelect={(ancestry) => changeAncestry(ancestry as Ancestries)}
@@ -98,12 +95,12 @@ export const CustomNpc = () => {
           <Input
             onChange={updateFirstName}
             value={firstName}
-            placeholder="Name"
+            placeholder={getText('Name')}
           />
           <Input
             onChange={updateLastName}
             value={lastName}
-            placeholder="Last name or Nickname"
+            placeholder={getText('Last name or Nickname')}
           />
 
           <Select
@@ -113,7 +110,7 @@ export const CustomNpc = () => {
               default: true,
             },
             ...AGE_LIST.map((age) => ({
-              label: age,
+              label: getText(age, gender),
               value: age,
             }))]}
             onSelect={(age) => changeAge(age as Age)}
@@ -122,7 +119,7 @@ export const CustomNpc = () => {
           <Input
             onChange={updateBackground}
             value={background}
-            placeholder="Background"
+            placeholder={getText('Background')}
           />
 
           <GenerateNpcButton glossy={true} onClick={getNpc} kind="confirm">
