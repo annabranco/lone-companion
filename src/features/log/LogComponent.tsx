@@ -2,8 +2,9 @@
 
 import { useContext, useState } from 'react';
 
+import { NpcViewComponent } from '@/components/NpcView';
 import { Colors } from '@/config';
-import { LanguagesContext, Log, SettingsContext } from '@/contexts';
+import { LanguagesContext, SettingsContext } from '@/contexts';
 import { GeneratedContentType } from '@/features/Generators';
 import { NpcCharacteristics } from '@/features/Generators/npcs';
 import { useLog } from '@/hooks';
@@ -24,7 +25,6 @@ import {
 	LogWrapper,
 	TimeStamp,
 } from './styled';
-import { NpcViewComponent } from '@/components/NpcView';
 
 const getFormattedDate = (timestamp: Date | string) => {
 	const date = new Date(timestamp).toLocaleString();
