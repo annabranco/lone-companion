@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
 
-import { Typography } from '@/components/Typography';
-import { LanguagesContext } from '@/contexts';
-
+import { NpcViewProps } from '.';
+import { Typography } from '../../components/Typography';
+import { LanguagesContext } from '../../contexts';
 import {
 	NpcBackground,
 	NpcGoal,
@@ -16,10 +16,8 @@ import {
 	NpcSection,
 	NpcSectionTitle,
 	NpcWrapper,
-} from '@/features/Generators/npcs/NpcGenerator';
-
-import { NpcViewProps } from '.';
-import { gendersForTranslation } from '@/i18n';
+} from '../../features/Generators/npcs/NpcGenerator';
+import { gendersForTranslation } from '../../i18n';
 
 export const NpcViewComponent = ({ npc }: NpcViewProps) => {
 	const { knownName, gender, background, presentation, goal, height, weight, hair, eyes, facialHair, quirks, skin } = npc;

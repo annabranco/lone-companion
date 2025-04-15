@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 
-import { AppButton } from '@/components/AppButton';
-import { AppButtonDefaultIcon, AppButtonInnerContent } from '@/components/AppButton/styled';
-import { ToastDuration } from '@/config';
-import { LanguagesContext } from '@/contexts';
-import { useNotification } from '@/hooks';
-import IconNpc from '@/images/icons/icon-npc-random.jpg';
+import IconNpc from '../../../../assets/images/icons/icon-npc-random.jpg';
+import { AppButton } from '../../../../components/AppButton';
+import { AppButtonDefaultIcon, AppButtonInnerContent } from '../../../../components/AppButton/styled';
+import { ToastDuration } from '../../../../config';
+import { LanguagesContext } from '../../../../contexts';
+import { useNotification } from '../../../../hooks';
 
 import { GeneratedContentType } from '../../types';
 import { generateNPC } from './functions';

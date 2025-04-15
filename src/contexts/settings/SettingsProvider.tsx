@@ -1,8 +1,8 @@
 import { PropsWithChildren, useCallback } from 'react';
 
-import { defaultState } from '@/config';
-import { LOCAL_STORAGE_KEYS, useLocalStorage } from '@/hooks';
-import { Theme } from '@/types';
+import { defaultState } from '../../config';
+import { LOCAL_STORAGE_KEYS, useLocalStorage } from '../../hooks';
+import { Theme } from '../../types';
 
 import { SettingsContext } from './SettingsContext';
 

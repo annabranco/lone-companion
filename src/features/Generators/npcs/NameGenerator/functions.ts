@@ -1,6 +1,6 @@
-import { Genders } from '@/constants';
-import { chance, pickFrom } from '@/utils';
-import { LANGUAGES, SupportedLanguages, translate } from '@/i18n';
+import { Genders } from '../../../../constants';
+import { chance, pickFrom } from '../../../../utils';
+import { LANGUAGES, SupportedLanguages, translate } from '../../../../i18n';
 
 import {
 	Ancestries,

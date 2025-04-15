@@ -1,5 +1,5 @@
-import { LANGUAGES, SupportedLanguages } from '@/i18n';
-import { type SettingsState, Theme } from '@/types';
+import { LANGUAGES, SupportedLanguages } from '../i18n';
+import { type SettingsState, Theme } from '../types';
 
 export const defaultSettings: SettingsState = {
   useTextRunes: true,

@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { auth, googleProvider } from 'config/firebase';
 import { createUserWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
-import { withErrorHandler } from 'utils/withErrorHandler';
-import { useUserContext } from 'contexts/user/UserContext';
-import { AuthData } from 'contexts/user/types';
+import { useState } from 'react';
+
+import { auth, googleProvider } from '../config/firebase';
+import { useUserContext } from '../contexts/user/UserContext';
+import { AuthData } from '../contexts/user/types';
+import { withErrorHandler } from '../utils/withErrorHandler';
 
 enum AUTH_FIELDS {
   EMAIL = 'email',
@@ -24,24 +25,31 @@ export const Auth = () => {
   };
 
   const handleSignUp = async () => {
-    const authData: AuthData = await createUserWithEmailAndPassword(auth, email, password);
+    if (auth) {
+      const authData: AuthData = await createUserWithEmailAndPassword(auth, email, password);
+      setUser(authData);
+    }
 
-    setUser(authData);
   };
 
   const handleSignInWithGoogle = async () => {
-    const authData = await signInWithPopup(auth, googleProvider);
-
-    setUser(authData);
+    if (auth) {
+      const authData = await signInWithPopup(auth, googleProvider);
+      setUser(authData);
+    }
   };
 
   console.log('>>>>>>> user', getUser());
 
-  const handleSignOut = () => withErrorHandler(() => signOut(auth));
+  const handleSignOut = () => withErrorHandler(() => {
+    if (auth) {
+      signOut(auth);
+    }
+  });
 
   return (
     <div>
-      {auth.currentUser ? (
+      {auth?.currentUser ? (
         <div>
           <button onClick={handleSignOut}>Sign out</button>
         </div>

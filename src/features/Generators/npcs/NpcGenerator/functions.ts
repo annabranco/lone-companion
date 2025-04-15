@@ -1,6 +1,6 @@
-import { Genders } from '@/constants';
-import { chance, pickFrom, rand } from '@/utils';
-import { LANGUAGES } from '@/i18n';
+import { Genders } from '../../../../constants';
+import { chance, pickFrom, rand } from '../../../../utils';
+import { LANGUAGES } from '../../../../i18n';
 
 import {
   Age,

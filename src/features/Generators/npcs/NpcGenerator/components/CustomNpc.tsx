@@ -1,14 +1,14 @@
 import { useContext, useState } from 'react';
 
-import { AppButton, AppButtonDefaultIcon, AppButtonInnerContent } from '@/components/AppButton';
-import { Input } from '@/components/Input';
-import { Select } from '@/components/Select';
-import { ToastDuration } from '@/config';
-import { Genders } from '@/constants';
-import { LanguagesContext } from '@/contexts';
-import { GeneratedContentType } from '@/features/Generators';
-import { useNotification } from '@/hooks';
-import IconNpcCustom from '@/images/icons/icon-npc-custom.jpeg';
+import IconNpcCustom from '../../../../../assets/images/icons/icon-npc-custom.jpeg';
+import { AppButton, AppButtonDefaultIcon, AppButtonInnerContent } from '../../../../../components/AppButton';
+import { Input } from '../../../../../components/Input';
+import { Select } from '../../../../../components/Select';
+import { ToastDuration } from '../../../../../config';
+import { Genders } from '../../../../../constants';
+import { LanguagesContext } from '../../../../../contexts';
+import { GeneratedContentType } from '../../../../../features/Generators';
+import { useNotification } from '../../../../../hooks';
 
 import { Age, AGE_LIST, Ancestries, ANCESTRIES_LIST } from '../../data';
 import { generateNPC } from '../functions';

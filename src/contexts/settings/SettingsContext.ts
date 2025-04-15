@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import { SettingsState, Theme } from '@/types';
+import { SettingsState, Theme } from '../../types';
 
 export interface SettingsContextInterface extends SettingsState {
 	toggleUseTextRunes: () => void;

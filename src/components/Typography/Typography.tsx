@@ -2,8 +2,8 @@
 import { css } from '@emotion/react';
 import { PropsWithChildren, useContext } from 'react';
 
-import { TextColor } from '@/config';
-import { SettingsContext } from '@/contexts';
+import { TextColor } from '../../config';
+import { SettingsContext } from '../../contexts';
 
 import type { TypographyProps } from '.';
 

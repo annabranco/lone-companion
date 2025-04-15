@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { Container } from '@/components/Container';
+import { Container } from '../../components/Container';
 
 export const MainApplicationWrapper = styled(Container)`
  	height: 90%; 

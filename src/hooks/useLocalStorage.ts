@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { LanguagesState, SettingsState } from '@/types';
+import type { LanguagesState, SettingsState } from '../types';
 
 export enum LOCAL_STORAGE_KEYS {
 	SETTINGS = 'anyas-oracle:settings',

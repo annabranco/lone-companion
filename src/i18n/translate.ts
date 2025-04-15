@@ -1,4 +1,4 @@
-import { Genders } from '@/constants';
+import { Genders } from '../constants';
 import { TRANSLATIONS } from './translations';
 import { ObjectToTranslate, Translations } from './types';
 

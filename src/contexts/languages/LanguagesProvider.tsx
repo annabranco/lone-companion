@@ -1,9 +1,9 @@
 import { PropsWithChildren, useCallback } from 'react';
 
-import { defaultState } from '@/config';
-import { Genders } from '@/constants';
-import { LOCAL_STORAGE_KEYS, useLocalStorage } from '@/hooks';
-import { SupportedLanguages, translate } from '@/i18n';
+import { defaultState } from '../../config';
+import { Genders } from '../../constants';
+import { LOCAL_STORAGE_KEYS, useLocalStorage } from '../../hooks';
+import { SupportedLanguages, translate } from '../../i18n';
 
 import { LanguagesContext } from './LanguagesContext';
 

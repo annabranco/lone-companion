@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-import { AppButton } from '@/components/AppButton';
-import { Typography } from '@/components/Typography';
-import { Colors, FontSize, zIndex } from '@/config';
+import { AppButton } from '../../../components/AppButton';
+import { Typography } from '../../../components/Typography';
+import { Colors, FontSize, zIndex } from '../../../config';
 
 
 export const CustomSettlementForm = styled.form`

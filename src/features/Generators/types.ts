@@ -1,4 +1,4 @@
-import { Colors, FontSize } from '@/config';
+import { Colors, FontSize } from '../../config';
 
 export enum GeneratedContentType {
 	NPC = 'npc',

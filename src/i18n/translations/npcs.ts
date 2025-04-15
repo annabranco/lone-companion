@@ -1,7 +1,7 @@
-import { gendersForTranslation } from '@/i18n/translate';
+import { gendersForTranslation } from '../../i18n/translate';
 import type { Translations } from '../types';
-import { Genders } from '@/constants';
-import { Age } from '@/features/Generators/npcs/data';
+import { Genders } from '../../constants';
+import { Age } from '../../features/Generators/npcs/data';
 
 export const translations: Translations = {
 	'Random Name': {

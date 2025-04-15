@@ -1,4 +1,4 @@
-import { gendersForTranslation } from '@/i18n/translate';
+import { gendersForTranslation } from '../../i18n/translate';
 import type { Translations } from '../types';
 
 export const translations: Translations = {

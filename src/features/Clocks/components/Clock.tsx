@@ -1,11 +1,11 @@
 import { Fragment, useContext, useEffect, useState } from 'react';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
-import { AppButton } from '@/components/AppButton';
-import { Typography } from '@/components/Typography';
-import { Colors, Fonts, FontSize, ToastDuration } from '@/config';
-import { LanguagesContext } from '@/contexts';
-import { useNotification } from '@/hooks';
+import { AppButton } from '../../../components/AppButton';
+import { Typography } from '../../../components/Typography';
+import { Colors, Fonts, FontSize, ToastDuration } from '../../../config';
+import { LanguagesContext } from '../../../contexts';
+import { useNotification } from '../../../hooks';
 import { segmentSizes } from './definitions';
 import {
     ClockActionButtons,

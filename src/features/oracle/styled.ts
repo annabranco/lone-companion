@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Typography } from '@/components/Typography';
-import { Colors, FontSize, GlobalStyles, zIndex } from '@/config';
-import { Theme } from '@/types';
+import { Typography } from '../../components/Typography';
+import { Colors, FontSize, GlobalStyles, zIndex } from '../../config';
+import { Theme } from '../../types';
 
 export const ConditionalWrapper = styled.div<{ visible: boolean }>`
   display: ${({ visible }) => (visible ? 'block' : 'none')};

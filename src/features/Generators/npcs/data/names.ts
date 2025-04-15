@@ -1,4 +1,4 @@
-import { Genders } from '@/constants';
+import { Genders } from '../../../../constants';
 
 import { Ancestries } from './';
 

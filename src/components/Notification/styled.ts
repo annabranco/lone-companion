@@ -1,8 +1,8 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { Typography } from '@/components/Typography';
-import { Colors, Fonts, FontSize, zIndex } from '@/config';
+import { Typography } from '../../components/Typography';
+import { Colors, Fonts, FontSize, zIndex } from '../../config';
 
 export const NotificationArea = styled.div`
   display: flex;

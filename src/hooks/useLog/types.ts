@@ -1,6 +1,6 @@
 
-import { NpcCharacteristics } from '@/features/Generators/npcs';
-import type { GeneratedTextExtended, GeneratedContentType, GeneratedText, GeneratedImage } from '@/features/Generators';
+import { NpcCharacteristics } from '../../features/Generators/npcs';
+import type { GeneratedTextExtended, GeneratedContentType, GeneratedText, GeneratedImage } from '../../features/Generators';
 
 export interface RawLog {
 	content?: NpcCharacteristics;

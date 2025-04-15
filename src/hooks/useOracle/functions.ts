@@ -1,5 +1,5 @@
-import type { OptionWithMultiplier, OptionWithWeight } from '@/types';
-import { getOptionsByWeight } from '@/utils';
+import type { OptionWithMultiplier, OptionWithWeight } from '../../types';
+import { getOptionsByWeight } from '../../utils';
 
 import { ORACLE_RESULT, POSITIVE_LIKELY } from './';
 

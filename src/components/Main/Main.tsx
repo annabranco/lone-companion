@@ -1,14 +1,13 @@
-import { LogDisplay } from '@/features/Log';
-import { Generators } from '@/features/Generators';
-import { Settings } from '@/features/Settings';
-
+import { Clocks } from '../../features/Clocks';
+import { Generators } from '../../features/Generators';
+// import { LogDisplay } from '../../features/Log';
+import { Settings } from '../../features/Settings';
 import { MainApplicationWrapper } from './styled';
-import { Clocks } from '@/features/Clocks';
 
 export const Main = () => (
 	<MainApplicationWrapper>
 		<Generators />
-		<LogDisplay />
+		{/* <LogDisplay /> */}
 		<Settings />
 		<Clocks />
 	</MainApplicationWrapper>

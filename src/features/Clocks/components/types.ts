@@ -1,4 +1,4 @@
-import { Colors } from '@/config';
+import { Colors } from '../../../config';
 
 export enum ClockSizes {
     Small = '100px',
@@ -14,11 +14,11 @@ export interface SegmentSizes {
 }
 
 export interface ClockProps {
-    bgColor: Colors;
-    count: number;
-    size: ClockSizes;
-    timerColor: Colors;
-    title: string;
+    bgColor?: Colors;
+    count?: number;
+    size?: ClockSizes;
+    timerColor?: Colors;
+    title?: string;
 }
 
 export enum ClockTimerProgress {

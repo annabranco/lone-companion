@@ -19,9 +19,9 @@
 // const SPANISH = 'Spanish';
 // const FANTASTIC = 'Fantastic';
 
-import { Ancestries } from '@/features/Generators/npcs/data';
+import { Ancestries } from '../../../features/Generators/npcs/data';
+import { chance, pickFrom } from '../../../utils';
 import { ForeignSettlementNamePart, LatinSettlementNameFirstPart, LatinSettlementNameSecondPart } from './';
-import { chance, pickFrom } from '@/utils';
 
 // ANCESTRIES_OPTIONS = [
 // 	AFRICAN,
@@ -791,7 +791,7 @@ const SPANISH_PREFIX: LatinSettlementNameFirstPart[] = [
     { spanish: 'Alamedo', english: ' Poplargrove', genderAndNumber: 'ms' },
     { spanish: 'Alcance', english: 'reach', genderAndNumber: 'ms' },
     { spanish: 'Altamar', english: 'highsea', genderAndNumber: 'ms' },
-    { spanish: 'Bóveda', english: 'vault', genderAndNumber: 'fm' },
+    { spanish: 'Bóveda', english: 'vault', genderAndNumber: 'fs' },
     { spanish: 'Arboleda', english: 'grove', genderAndNumber: 'ms' },
     { spanish: 'Arenas', english: 'sands', genderAndNumber: 'fp' },
     { spanish: 'Arroyo', english: 'brook', genderAndNumber: 'ms' },
@@ -1484,6 +1484,7 @@ const SPANISH_SUFIX: LatinSettlementNameSecondPart[] = [
             mp: 'Rotos',
             fp: 'Rotas',
         },
+        english: 'Broken',
     },
     { spanish: 'de Abajo', english: 'Down' },
     {

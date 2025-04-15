@@ -1,17 +1,17 @@
 /** @jsxImportSource @emotion/react */
 
-import { useContext, useState } from 'react';
-import { Typography } from '@/components/Typography';
-import { BackgroundColor, Colors, FontSize, zIndex } from '@/config';
-import { LanguagesContext, SettingsContext } from '@/contexts';
-import { useLog } from '@/hooks';
+import { useContext } from 'react';
+import { Typography } from '../../components/Typography';
+import { BackgroundColor } from '../../config';
+import { LanguagesContext, SettingsContext } from '../../contexts';
+import { useLog } from '../../hooks';
 
 import { LogComponent } from './LogComponent';
 import { LogContainer, LogList, LogListWrapper } from './styled';
 
 export const LogDisplay = () => {
-	const [displayLogs, toggleDisplayLogs] = useState(true);
-	const { logs, log } = useLog();
+	const { logs } = useLog();
+
 	console.log('>>>>>>> logs', logs);
 
 	const { theme } = useContext(SettingsContext);

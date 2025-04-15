@@ -3,15 +3,15 @@ import type {
     ToastPosition,
 } from 'react-toastify';
 
-import { ToastDuration } from '@/config';
+import { ToastDuration } from '../../config';
 
-import type { NpcCharacteristics } from '@/features/Generators/npcs';
+import type { NpcCharacteristics } from '../../features/Generators/npcs';
 import type {
     GeneratedContentType,
     GeneratedImage,
     GeneratedText,
     GeneratedTextExtended,
-} from '@/features/Generators';
+} from '../../features/Generators';
 
 
 export interface NotificationCustomOptions {

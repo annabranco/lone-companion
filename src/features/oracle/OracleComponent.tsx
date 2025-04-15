@@ -2,9 +2,9 @@
 
 import { useContext, useEffect, useMemo, useState } from 'react';
 
-import { AppButton } from '@/components/AppButton';
-import { OverlayBackground } from '@/config';
-import { LanguagesContext, SettingsContext } from '@/contexts';
+import { AppButton } from '../../components/AppButton';
+import { OverlayBackground } from '../../config';
+import { LanguagesContext, SettingsContext } from '../../contexts';
 
 import { POSITIVE_LIKELY } from '../../hooks/useOracle/constants';
 import {

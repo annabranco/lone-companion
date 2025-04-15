@@ -1,4 +1,4 @@
-import { Clock } from '@/features/Clocks/components'
+import { Clock } from '../../features/Clocks/components'
 
 export const Clocks = () => {
 

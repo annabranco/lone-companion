@@ -1,15 +1,15 @@
 import { useContext, useState } from 'react';
 
-import { AppButton, AppButtonDefaultIcon, AppButtonInnerContent } from '@/components/AppButton';
-import { Typography } from '@/components/Typography';
-import { Colors, ToastDuration } from '@/config';
-import { LanguagesContext } from '@/contexts';
-import { useNotification } from '@/hooks';
-import { Select } from '@/components/Select';
-import { Ancestries, ANCESTRIES_LIST } from '@/features/Generators/npcs/data';
-import IconSettlementName from '@/images/icons/icon-busy_road.jpg';
-import { CustomSettlementForm, FormOkButton, getSettlementName, CustomSettlementOriginLabel  } from './';
-import { Genders } from '@/constants';
+import IconSettlementName from '../../../assets/images/icons/icon-busy_road.jpg';
+import { AppButton, AppButtonDefaultIcon, AppButtonInnerContent } from '../../../components/AppButton';
+import { Select } from '../../../components/Select';
+import { Typography } from '../../../components/Typography';
+import { Colors, ToastDuration } from '../../../config';
+import { Genders } from '../../../constants';
+import { LanguagesContext } from '../../../contexts';
+import { Ancestries, ANCESTRIES_LIST } from '../../../features/Generators/npcs/data';
+import { useNotification } from '../../../hooks';
+import { CustomSettlementForm, CustomSettlementOriginLabel, FormOkButton, getSettlementName } from './';
 
 export const SettlementNameGenerator = () => {
   const [displayForm, toggleDisplayForm] = useState(false);

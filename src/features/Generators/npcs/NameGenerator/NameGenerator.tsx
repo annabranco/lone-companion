@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 
-import { AppButton, AppButtonDefaultIcon, AppButtonInnerContent } from '@/components/AppButton';
-import { Typography } from '@/components/Typography';
-import { Colors, ToastDuration } from '@/config';
-import { LanguagesContext } from '@/contexts';
-import { useNotification } from '@/hooks';
-import IconName from '@/images/icons/icon-name.png';
+import IconName from '../../../../assets/images/icons/icon-name.png';
+import { AppButton, AppButtonDefaultIcon, AppButtonInnerContent } from '../../../../components/AppButton';
+import { Typography } from '../../../../components/Typography';
+import { Colors, ToastDuration } from '../../../../config';
+import { LanguagesContext } from '../../../../contexts';
+import { useNotification } from '../../../../hooks';
 
 import { getName } from './functions';
 

@@ -1,4 +1,4 @@
-import { OptionWithWeight } from '@/types';
+import { OptionWithWeight } from '../types';
 
 export const getOptionsByWeight = <O>(options: OptionWithWeight<O>[]): O[] => {
 	const optionsArray: O[] = [];

@@ -1,5 +1,5 @@
-import { Ancestries } from '@/generators/npcs/data';
-import { Genders } from '@/constants';
+import { Genders } from '../../../../constants';
+import { Ancestries } from '../data';
 
 export interface NameProps {
 	gender: Genders;

@@ -3,15 +3,14 @@ import { ToastContainer } from 'react-toastify';
 
 
 // import { Header } from '@/components/Header/Header';
-import { zIndex } from '@/config';
+import { zIndex } from '../../config';
 import {
   LanguagesProvider,
   LogProvider,
   SettingsProvider,
   UserProvider,
-} from '@/contexts';
-import { globalStylesDefinitions } from '@/styled';
-
+} from '../../contexts';
+import { globalStylesDefinitions } from '../../styled';
 import { Main } from '../Main';
 import './resetStyles.css';
 

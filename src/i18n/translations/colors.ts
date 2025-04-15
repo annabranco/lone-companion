@@ -1,13 +1,11 @@
-import { Ancestries } from '@/features/Generators/npcs/data';
 import type { Translations } from '../types';
-import { gendersForTranslation } from '@/i18n/translate';
 
 export const translations: Translations = {
 
 };
 
-
-enum colors {
+// TODO: Add translations for colors in Spanish and Portuguese
+export enum Colors {
 	Amber = 'amber',
 	Auburn = 'auburn',
 	Black = 'black',

@@ -1,5 +1,5 @@
-import { Genders } from '@/constants';
-import { SupportedLanguages } from '@/i18n';
+import { Genders } from '../../../constants';
+import { SupportedLanguages } from '../../../i18n';
 
 import { Age, Ancestries, Height, Weight } from './data';
 

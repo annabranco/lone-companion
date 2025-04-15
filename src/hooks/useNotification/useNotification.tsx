@@ -1,8 +1,8 @@
 import { css, cx } from '@emotion/css';
 import { toast, type ToastContentProps } from 'react-toastify';
 
-import { Notification } from '@/components/Notification';
-import { Colors, defaultNotificationOptions } from '@/config';
+import { Notification } from '../../components/Notification';
+import { Colors, defaultNotificationOptions } from '../../config';
 import type {
     NotificationCustomOptions,
     NotificationData,

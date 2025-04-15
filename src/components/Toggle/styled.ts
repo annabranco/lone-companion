@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-import { Colors } from '@/config';
+import { Colors } from '../../config';
 
 import type { ToggleStyles } from '.';
 

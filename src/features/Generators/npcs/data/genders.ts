@@ -1,4 +1,4 @@
-import { Genders } from '@/constants';
+import { Genders } from '../../../../constants';
 
 export const PRONOUMS = {
 	[Genders.Woman]: ['She', 'her'],

@@ -1,11 +1,11 @@
 import { useContext, useState } from 'react';
 
-import { NpcViewComponent } from '@/components/NpcView';
-import { defaultNotificationOptions } from '@/config';
-import { LanguagesContext } from '@/contexts';
-import { GeneratedContentType } from '@/features/Generators';
-import { type NpcCharacteristics } from '@/features/Generators/npcs';
-import { useLog } from '@/hooks';
+import { NpcViewComponent } from '../../components/NpcView';
+import { defaultNotificationOptions } from '../../config';
+import { LanguagesContext } from '../../contexts';
+import { GeneratedContentType } from '../../features/Generators';
+import { type NpcCharacteristics } from '../../features/Generators/npcs';
+import { useLog } from '../../hooks';
 
 import type { NotificationProps } from '.';
 import {

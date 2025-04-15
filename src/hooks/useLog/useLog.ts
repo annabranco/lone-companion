@@ -1,6 +1,6 @@
 import { useCallback, useContext } from 'react';
 
-import { LogContext } from '@/contexts';
+import { LogContext } from '../../contexts';
 import type { Log, RawLog } from '.';
 
 interface UseLogReturn {

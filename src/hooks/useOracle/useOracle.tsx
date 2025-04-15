@@ -1,12 +1,12 @@
 import { useContext, useState } from 'react';
 
-import { Colors, FontSize } from '@/config';
-import { LanguagesContext, SettingsContext } from '@/contexts';
-import { GeneratedContentType } from '@/features/Generators';
-import type { OracleComponentProps, OracleOptions, OracleResult } from '@/features/Oracle';
-import { OracleComponent } from '@/features/Oracle/OracleComponent';
-import { useDice, useLog } from '@/hooks';
-import { defaultOracleOptions, ORACLE_ANSWERS_WITH_MULTIPLIERS, ORACLE_RESULT, ORACLE_RUNES, POSITIVE_LIKELY } from '@/hooks/useOracle';
+import { Colors, FontSize } from '../../config';
+import { LanguagesContext, SettingsContext } from '../../contexts';
+import { GeneratedContentType } from '../../features/Generators';
+import type { OracleComponentProps, OracleOptions, OracleResult } from '../../features/Oracle';
+import { OracleComponent } from '../../features/Oracle/OracleComponent';
+import { useDice, useLog } from '../../hooks';
+import { defaultOracleOptions, ORACLE_ANSWERS_WITH_MULTIPLIERS, ORACLE_RESULT, ORACLE_RUNES, POSITIVE_LIKELY } from '../../hooks/useOracle';
 
 import { getOracleOptionsByWeight } from './functions';
 

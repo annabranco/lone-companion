@@ -1,5 +1,4 @@
-import { Genders } from '@/constants';
-import { SupportedLanguages } from '@/i18n';
+import { Genders } from '../constants';
 
 export enum LANGUAGES {
 	en = 'en',

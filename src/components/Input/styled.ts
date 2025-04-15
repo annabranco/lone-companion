@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
-import { Typography } from '@/components/Typography';
-import { Colors, Fonts, FontSize } from '@/config';
+import { Typography } from '../../components/Typography';
+import { Colors, Fonts, FontSize } from '../../config';
 
 export const InputWrapper = styled.div`
   position: relative;

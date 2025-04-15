@@ -1,6 +1,6 @@
-import { Ancestries } from '@/features/Generators/npcs/data';
+import { Ancestries } from '../../features/Generators/npcs/data';
+import { gendersForTranslation } from '../../i18n/translate';
 import type { Translations } from '../types';
-import { gendersForTranslation } from '@/i18n/translate';
 
 export const translations: Translations = {
     [Ancestries.Anglosaxon]: {

@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 
-import { Theme } from '@/types';
-
+import { Theme } from '../types';
 import { Colors } from './colors';
 import { Fonts, FontSize } from './fonts';
 
