@@ -1,3 +1,4 @@
+import { Translations } from '../types';
 import { translations as ancestries } from './ancestries';
 import { translations as basics } from './basics';
 import { translations as colors } from './colors';
@@ -8,7 +9,7 @@ import { translations as npcs } from './npcs';
 import { translations as oracle } from './oracle';
 import { translations as settings } from './settings';
 
-export const TRANSLATIONS = {
+export const TRANSLATIONS: Translations  = {
 	...ancestries,
 	...basics,
 	...colors,
