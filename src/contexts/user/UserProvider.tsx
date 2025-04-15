@@ -22,7 +22,7 @@ export const UserProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const getUser = useCallback((): User | null => {
     let loggedUser = user;
 
-    if (!loggedUser) {
+    if (!loggedUser && firebaseApp) {
       const auth = getAuth(firebaseApp);
       const { currentUser } = auth;
 
