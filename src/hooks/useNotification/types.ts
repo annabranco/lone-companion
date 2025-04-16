@@ -13,7 +13,6 @@ import type {
     GeneratedTextExtended,
 } from '../../features/Generators';
 
-
 export interface NotificationCustomOptions {
     backgroundColor?: string;
     duration?: ToastDuration;
@@ -23,6 +22,7 @@ export interface NotificationCustomOptions {
 export type NotificationOptions = NotificationCustomOptions & ToastOptions;
 
 export interface NotificationData {
+    component?: React.FC;
     content?: NpcCharacteristics;
     header?: GeneratedText;
 	image?: GeneratedImage;

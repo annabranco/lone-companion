@@ -145,4 +145,22 @@ export const translations: Translations = {
 		de: 'Orakel',
 		jp: 'オラクル',
 	},
+	'Oracle Images': {
+		en: 'Oracle Images',
+		es: 'Imágenes del Oráculo',
+		pt: 'Imagens do Oráculo',
+		ru: 'Изображения Оракула',
+		fr: 'Images de l\'Oracle',
+		de: 'Orakelbilder',
+		jp: 'オラクルの画像',
+	},
+	'The Oracle shows these images': {
+		en: 'The Oracle shows these images',
+		es: 'El Oráculo muestra estas imágenes',
+		pt: 'O Oráculo mostra estas imagens',
+		ru: 'Оракул показывает эти изображения',
+		fr: 'L\'Oracle montre ces images',
+		de: 'Das Orakel zeigt diese Bilder',
+		jp: 'オラクルはこれらの画像を表示します',
+	},
 };

@@ -31,6 +31,8 @@ export const Notification = ({
     const { getText } = useContext(LanguagesContext);
     const { log } = useLog();
 
+    const Component = data.component;
+
     const [isCloseVisible, toggleIsCloseVisible] = useState(false);
 
     const autoClose =
@@ -106,6 +108,8 @@ export const Notification = ({
                     <NotificationText as="p">{message.text}</NotificationText>
                 </NotificationTextAdjustment>
             )}
+
+            {Component && <Component />}
 
             {content && (
                 <NotificationContent>{getContent()}</NotificationContent>
