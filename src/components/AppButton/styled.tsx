@@ -1,8 +1,9 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { Colors } from '../../config';
 import type { ButtonProps } from '.';
+import { Colors, Fonts, FontSize } from '../../config';
+import { Typography } from '../Typography';
 
 const ButtonKinds = {
   primary: css`
@@ -43,9 +44,8 @@ export const Button = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   border-radius: 3px;
-  padding: 7px 15px;
+  padding: 7px 10px;
   width: auto;
-  overflow: hidden;
   box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.5);
   text-align: center;
   font-weight: normal;
@@ -69,8 +69,6 @@ export const Button = styled.button<ButtonProps>`
   ${({ glossy }) =>
     glossy &&
     css`
-      padding-top: 20px;
-      padding-bottom : 10px;
       border-radius: 15px;
 
       box-shadow: inset rgba(255, 254, 255, 0.45) 0 12px 10px,
@@ -81,6 +79,30 @@ export const Button = styled.button<ButtonProps>`
         box-shadow: inset rgba(255, 254, 255, 0.45) 0 8px 10px,
           inset hsla(0, 0%, 0%, 0.5) 1px 1px 10px 2px,
           rgba(0, 0, 0, 0.45) 1px 1px 3px 1px;
+      }
+    `}
+
+    
+  ${({ label }) =>
+    label &&
+    css`
+      &:hover {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &::after {
+          position: absolute;
+          bottom: 0;
+          content: "${label}";
+          background: ${Colors.gray0};
+          border: 2px solid ${Colors.blue3};
+          padding: 3px 6px;
+          color: ${Colors.blue6};
+          font-family: ${Fonts.MedievalSharp};
+          font-size: ${FontSize.small};
+        }
       }
     `}
 `;
@@ -110,5 +132,12 @@ export const AppButtonInnerContent = styled.div`
 `;
 
 export const AppButtonDefaultIcon = styled.img`
-  width: 5rem;
+  width: 3rem;
+`;
+
+export const AppButtonLabel = styled(Typography)`
+  margin-top: 0.5rem;
+  color: ${Colors.gray1};
+  font-family: ${Fonts.MedievalSharp};
+  size: ${FontSize.small};
 `;

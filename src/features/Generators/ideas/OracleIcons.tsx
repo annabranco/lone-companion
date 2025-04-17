@@ -1,27 +1,31 @@
-import { useContext, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 
 import OracleIconsIcon from '../../../assets/oracle/icons/icons-macro.png';
-import { AppButton, AppButtonDefaultIcon, AppButtonInnerContent } from '../../../components/AppButton';
-import { Typography } from '../../../components/Typography';
-import { Colors, ToastDuration } from '../../../config';
+import {
+	AppButton,
+	AppButtonDefaultIcon,
+	AppButtonInnerContent,
+} from '../../../components/AppButton';
+import { ToastDuration } from '../../../config';
 import { LanguagesContext } from '../../../contexts';
 import { useNotification } from '../../../hooks';
 import { rand } from '../../../utils';
 import { IconComponent } from './IconComponent';
-import { OracleIconProps } from './types';
 import { OracleIconsWrapper } from './styled';
-
+import { OracleIconProps } from './types';
 
 const TOTAL_ICONS = 400;
 const DEFAULT_NUM_OF_ICONS = 4;
 
-export const OracleIcons = ({num = DEFAULT_NUM_OF_ICONS}: OracleIconProps) => {
-
+export const OracleIcons = ({
+	num = DEFAULT_NUM_OF_ICONS,
+}: OracleIconProps) => {
 	const [selectedIcons, setSelectedIcons] = useState<number[]>([]);
 
 	const { getText } = useContext(LanguagesContext);
 	const { notify } = useNotification();
 
+	const text = useMemo(() => getText('Oracle Images'), [getText]);
 
 	const getNewIcon = () => {
 		const newIconId = rand(TOTAL_ICONS);
@@ -29,22 +33,24 @@ export const OracleIcons = ({num = DEFAULT_NUM_OF_ICONS}: OracleIconProps) => {
 		if (selectedIcons.includes(newIconId)) {
 			return getNewIcon();
 		} else {
-			setSelectedIcons( [...selectedIcons, newIconId] );
+			setSelectedIcons([...selectedIcons, newIconId]);
 
 			return newIconId;
 		}
 	};
 
 	const getOracleIcons = () => {
-		const icons = Array(num).fill('').map(() => getNewIcon());
+		const icons = Array(num)
+			.fill('')
+			.map(() => getNewIcon());
 
 		return () => (
 			<OracleIconsWrapper>
-			{icons.map((icon) => (
-				<IconComponent key={icon} icon={icon} />
-			))}
+				{icons.map((icon) => (
+					<IconComponent key={icon} icon={icon} />
+				))}
 			</OracleIconsWrapper>
-		)
+		);
 	};
 
 	const generateOracleIcons = () => {
@@ -62,12 +68,9 @@ export const OracleIcons = ({num = DEFAULT_NUM_OF_ICONS}: OracleIconProps) => {
 	};
 
 	return (
-		<AppButton glossy={true} onClick={generateOracleIcons}>
+		<AppButton glossy={true} onClick={generateOracleIcons} text={text}>
 			<AppButtonInnerContent>
-					<AppButtonDefaultIcon src={OracleIconsIcon} alt={getText('Oracle Images')} />
-			<Typography styles={{ color: Colors.white }}>
-				{getText('Oracle Images')}
-			</Typography>
+				<AppButtonDefaultIcon src={OracleIconsIcon} alt={text} />
 			</AppButtonInnerContent>
 		</AppButton>
 	);

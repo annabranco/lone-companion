@@ -2,8 +2,10 @@ import { LANGUAGES, SupportedLanguages } from '../i18n';
 import { type SettingsState, Theme } from '../types';
 
 export const defaultSettings: SettingsState = {
-  useTextRunes: true,
+  displayButtonsLabel: false,
+  hideButtonsText: false,
   theme: Theme.Light,
+  useTextRunes: true,
 };
 
 const supportedLanguages = Object.keys(LANGUAGES);

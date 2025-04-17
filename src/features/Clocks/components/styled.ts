@@ -10,7 +10,7 @@ export const ClockContainer = styled.div<{ size: ClockSizes }>`
   align-items: center;
   justify-content: center;
   width: ${({ size }) => size};
-  height: ${({ size }) => size};;
+  height: ${({ size }) => size};
 `;
 
 export const ClockMainWrapper = styled.div<{ bgColor: Colors, segmentSizes: SegmentSizes  }>`

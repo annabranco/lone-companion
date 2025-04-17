@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import type { LanguagesState, SettingsState } from '../types';
 
 export enum LOCAL_STORAGE_KEYS {
-	SETTINGS = 'anyas-oracle:settings',
-	LANGUAGE = 'anyas-oracle:language',
+	SETTINGS = 'lone-companion:settings',
+	LANGUAGE = 'lone-companion:language',
 }
 
-type State = SettingsState | LanguagesState | null;
+type UseLocalStorageReturn<T> = [ T, (data: T) => Promise<void> ];
 
-export const useLocalStorage = (key: LOCAL_STORAGE_KEYS, defaultValue: State) => {
+export const useLocalStorage = <T>(key: LOCAL_STORAGE_KEYS, defaultValue: T): UseLocalStorageReturn<T> => {
 	const [value, setValue] = useState(() => {
 		try {
 			const localStorageValue = localStorage.getItem(key);
@@ -20,7 +19,7 @@ export const useLocalStorage = (key: LOCAL_STORAGE_KEYS, defaultValue: State) =>
 		}
 	});
 
-	const saveData = (data: State) => {
+	const saveData = (data: T) => {
 		if (data === null || data === undefined) {
 			localStorage.removeItem(key);
 			return Promise.resolve();

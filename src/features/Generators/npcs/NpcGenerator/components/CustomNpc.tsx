@@ -1,7 +1,11 @@
-import { useContext, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 
 import IconNpcCustom from '../../../../../assets/images/icons/icon-npc-custom.jpeg';
-import { AppButton, AppButtonDefaultIcon, AppButtonInnerContent } from '../../../../../components/AppButton';
+import {
+  AppButton,
+  AppButtonDefaultIcon,
+  AppButtonInnerContent,
+} from '../../../../../components/AppButton';
 import { Input } from '../../../../../components/Input';
 import { Select } from '../../../../../components/Select';
 import { ToastDuration } from '../../../../../config';
@@ -9,11 +13,9 @@ import { Genders } from '../../../../../constants';
 import { LanguagesContext } from '../../../../../contexts';
 import { GeneratedContentType } from '../../../../../features/Generators';
 import { useNotification } from '../../../../../hooks';
-
 import { Age, AGE_LIST, Ancestries, ANCESTRIES_LIST } from '../../data';
 import { generateNPC } from '../functions';
 import { CustomNpcForm, GenerateNpcButton } from './styled';
-
 
 export const CustomNpc = () => {
   const [displayForm, toggleDisplayForm] = useState(false);
@@ -23,8 +25,11 @@ export const CustomNpc = () => {
   const [ancestry, changeAncestry] = useState<Ancestries>();
   const [age, changeAge] = useState<Age>();
   const [background, updateBackground] = useState('');
+
   const { getText, language } = useContext(LanguagesContext);
   const { notify } = useNotification();
+
+  const text = useMemo(() => getText('Custom NPC'), [getText]);
 
   const getNpc = () => {
     const title = getText('NPC');
@@ -56,39 +61,41 @@ export const CustomNpc = () => {
 
   return (
     <>
-      <AppButton glossy={true} onClick={() => toggleDisplayForm(!displayForm)}>
+      <AppButton
+        glossy={true}
+        onClick={() => toggleDisplayForm(!displayForm)}
+        text={text}
+      >
         <AppButtonInnerContent>
-          <AppButtonDefaultIcon src={IconNpcCustom} alt={getText('Custom NPC')} />
-          {getText('Custom NPC')}
+          <AppButtonDefaultIcon src={IconNpcCustom} alt={text} />
         </AppButtonInnerContent>
-
       </AppButton>
 
       {displayForm && (
         <CustomNpcForm autoComplete="off">
           <Select
             options={[{
-              label: getText('Random Gender'),
-              value: '',
-              default: true,
-            },
-            ...Object.values(Genders).map((gender) => ({
-              label: getText(gender),
-              value: gender,
-            }))]}
+                label: getText('Random Gender'),
+                value: '',
+                default: true,
+              },
+              ...Object.values(Genders).map((gender) => ({
+                label: getText(gender),
+                value: gender,
+              }))]}
             onSelect={(gender) => changeGender(gender as Genders)}
           />
 
           <Select
             options={[{
-              label: getText('Random Ancestry'),
-              value: '',
-              default: true,
-            },
-            ...ANCESTRIES_LIST.map((ancestry) => ({
-              label: getText(ancestry, gender),
-              value: ancestry,
-            }))]}
+                label: getText('Random Ancestry'),
+                value: '',
+                default: true,
+              },
+              ...ANCESTRIES_LIST.map((ancestry) => ({
+                label: getText(ancestry, gender),
+                value: ancestry,
+              }))]}
             onSelect={(ancestry) => changeAncestry(ancestry as Ancestries)}
           />
 
@@ -105,14 +112,14 @@ export const CustomNpc = () => {
 
           <Select
             options={[{
-              label: getText('Random Age'),
-              value: '',
-              default: true,
-            },
-            ...AGE_LIST.map((age) => ({
-              label: getText(age, gender),
-              value: age,
-            }))]}
+                label: getText('Random Age'),
+                value: '',
+                default: true,
+              },
+              ...AGE_LIST.map((age) => ({
+                label: getText(age, gender),
+                value: age,
+              }))]}
             onSelect={(age) => changeAge(age as Age)}
           />
 
@@ -124,10 +131,12 @@ export const CustomNpc = () => {
 
           <GenerateNpcButton glossy={true} onClick={getNpc} kind="confirm">
             <AppButtonInnerContent>
-              <AppButtonDefaultIcon src={IconNpcCustom} alt={getText('Generate NPC')} />
+              <AppButtonDefaultIcon
+                src={IconNpcCustom}
+                alt={getText('Generate NPC')}
+              />
               {getText('Generate NPC')}
             </AppButtonInnerContent>
-
           </GenerateNpcButton>
 
           <AppButton onClick={() => toggleDisplayForm(false)} kind="ghost">

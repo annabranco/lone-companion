@@ -6,9 +6,10 @@ import { LOCAL_STORAGE_KEYS, useLocalStorage } from '../../hooks';
 import { SupportedLanguages, translate } from '../../i18n';
 
 import { LanguagesContext } from './LanguagesContext';
+import { LanguagesState } from '../../types';
 
 export const LanguagesProvider = ({ children }: PropsWithChildren) => {
-	  const [language, changeUserLanguage] = useLocalStorage(LOCAL_STORAGE_KEYS.LANGUAGE, defaultState.language);
+	  const [language, changeUserLanguage] = useLocalStorage<LanguagesState>(LOCAL_STORAGE_KEYS.LANGUAGE, defaultState.language);
 
 	const getText = useCallback(
 		(text: string, genderModifier?: Genders) => {

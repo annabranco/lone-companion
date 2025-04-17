@@ -1,6 +1,26 @@
-import { ToggleInput, ToggleLabel, type ToggleProps, ToggleWrapper } from './';
+import { useContext } from 'react';
 
-export const Toggle = ({ backgroundColor, buttonColor, isOn, name, onValueChange }: ToggleProps) => {
+import { Colors, TextColor } from '../../config';
+import { SettingsContext } from '../../contexts';
+import {
+    ToggleDisplay,
+    ToggleElement,
+    ToggleInputController,
+    ToggleLabel,
+    type ToggleProps,
+    ToggleWrapper,
+} from './';
+
+export const Toggle = ({
+    backgroundColor = { off: Colors.gray2, on: Colors.blue3 },
+    buttonColor = { off: Colors.white, on: Colors.gray1 },
+    isOn,
+    label,
+    name,
+    onValueChange,
+}: ToggleProps) => {
+    const { theme } = useContext(SettingsContext);
+
     const onToggle = (event: React.ChangeEvent<HTMLInputElement>) => {
         event.stopPropagation();
         onValueChange();
@@ -8,8 +28,21 @@ export const Toggle = ({ backgroundColor, buttonColor, isOn, name, onValueChange
 
     return (
         <ToggleWrapper>
-            <ToggleInput type="checkbox" id={`toggle-${name}`} onChange={onToggle} />
-            <ToggleLabel backgroundColor={backgroundColor} buttonColor={buttonColor} htmlFor={`toggle-${name}`} isOn={isOn} />
+            <ToggleElement>
+                <ToggleInputController
+                    type="checkbox"
+                    id={`toggle-${name}`}
+                    onChange={onToggle}
+                />
+                <ToggleDisplay
+                    backgroundColor={backgroundColor}
+                    buttonColor={buttonColor}
+                    htmlFor={`toggle-${name}`}
+                    isOn={isOn}
+                />
+            </ToggleElement>
+
+            <ToggleLabel styles={TextColor[theme]}>{label}</ToggleLabel>
         </ToggleWrapper>
     );
 };

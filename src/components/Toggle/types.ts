@@ -12,6 +12,7 @@ export interface ToggleStyles {
 }
 
 export interface ToggleProps extends ToggleStyles {
+    label?: string;
     name: string;
     onValueChange: () => void;
 }

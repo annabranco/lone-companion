@@ -5,26 +5,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext, useState } from 'react';
 
 import { Toggle } from '../../components/Toggle';
-import { Colors, OverlayBackground, TextColor } from '../../config';
+import { Typography } from '../../components/Typography';
+import { Colors, OverlayBackground } from '../../config';
 import { LanguagesContext, SettingsContext } from '../../contexts';
 import { Theme } from '../../types';
-
 import { LanguageSelector } from '../LanguageSelector';
 import {
 	BackButton,
 	MainSettingsWrapper,
+	OptionGroup,
 	SettingsButton,
 	SettingsOverlay,
 	SettingsWrapper,
-	ThemeWrappper,
-	ToggleTexts,
 } from './styled';
 
 export const Settings = () => {
-	const { getText, language } = useContext(LanguagesContext);
-	const { useTextRunes, toggleUseTextRunes, theme, toggleDarkMode } =
-		useContext(SettingsContext);
 	const [displaySettings, toggleDisplaySettings] = useState(false);
+
+	const { getText, language } = useContext(LanguagesContext);
+	const {
+		displayButtonsLabel,
+		hideButtonsText,
+		theme,
+		toggleDarkMode,
+		toggleDisplayButtonsLabel,
+		toggleHideButtonsText,
+		toggleUseTextRunes,
+		useTextRunes,
+	} = useContext(SettingsContext);
 
 	return (
 		<>
@@ -33,35 +41,44 @@ export const Settings = () => {
 					<SettingsWrapper>
 						<MainSettingsWrapper>
 							<Toggle
-								backgroundColor={{ off: Colors.gray2, on: Colors.blue3 }}
-								buttonColor={{ off: Colors.white, on: Colors.gray1 }}
 								disabled={language !== 'en' && language !== 'es'}
+								label={getText('Display oracle runes result as text')}
 								isOn={useTextRunes}
 								name="settings"
 								onValueChange={toggleUseTextRunes}
 							/>
-							<ToggleTexts
-								disabled={language !== 'en' && language !== 'es'}
-								styles={TextColor[theme]}
-							>
-								{getText('Display oracle runes result as text')}
-							</ToggleTexts>
-						</MainSettingsWrapper>
 
-						<ThemeWrappper>
 							<Toggle
-								backgroundColor={{ off: Colors.gray2, on: Colors.blue3 }}
-								buttonColor={{ off: Colors.white, on: Colors.gray1 }}
 								isOn={theme === Theme.Dark}
+								label={getText('Dark mode')}
 								name="theme"
 								onValueChange={toggleDarkMode}
 							/>
-							<ToggleTexts styles={TextColor[theme]}>
-								{getText('Dark mode')}
-							</ToggleTexts>
-						</ThemeWrappper>
 
-						<LanguageSelector />
+							<OptionGroup>
+								<Toggle
+									isOn={hideButtonsText}
+									label={getText('Hide texts from the main buttons')}
+									name="hideButtonsText"
+									onValueChange={toggleHideButtonsText}
+								/>
+
+								{hideButtonsText && (
+									<>
+										<Typography color={Colors.gray1}>
+											{getText(' ...but display them with the mouse')}
+										</Typography>
+										<Toggle
+											isOn={displayButtonsLabel}
+											name="hideButtonsLabel"
+											onValueChange={toggleDisplayButtonsLabel}
+										/>
+									</>
+								)}
+							</OptionGroup>
+
+							<LanguageSelector />
+						</MainSettingsWrapper>
 					</SettingsWrapper>
 
 					<BackButton onClick={() => toggleDisplaySettings(false)}>

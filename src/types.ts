@@ -16,16 +16,13 @@ export enum Theme {
 }
 
 export interface SettingsState {
-  useTextRunes: boolean;
+  displayButtonsLabel: boolean;
+  hideButtonsText: boolean;
   theme: Theme;
+  useTextRunes: boolean;
 }
 
 export type LanguagesState = SupportedLanguages;
-
-// export interface LoadedData {
-//   settings: SettingsState;
-//   language: SupportedLanguages;
-// }
 
 export interface EventsProps {
   onMouseOver?(event: React.MouseEvent): void;

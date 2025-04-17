@@ -7,17 +7,32 @@ import { SettingsContext } from '../../contexts';
 
 import type { TypographyProps } from '.';
 
-export const Typography = ({ as = 'p', children, ...props }: PropsWithChildren<TypographyProps>) => (
-	<TypographyElement as={as} {...props}>
+export const Typography = ({ as = 'p', color, fontFamily, size, children, ...props }: PropsWithChildren<TypographyProps>) => (
+	<TypographyElement as={as} color={color} fontFamily={fontFamily} size={size} {...props}>
 		{children}
 	</TypographyElement>);
 
-const TypographyElement = ({ as, children, styles, ...props }: PropsWithChildren<TypographyProps>) => {
+const TypographyElement = ({ as, children, color, fontFamily, size, styles, ...props }: PropsWithChildren<TypographyProps>) => {
 	const { theme } = useContext(SettingsContext);
+
+	const applyColor = color && css`
+		color: ${color}
+	`;
+
+	const applySize = color && css`
+		font-size: ${size}
+	`;
+
+	const applyFontFamily = color && css`
+		font-family: ${fontFamily}
+	`;
 
 	const appliedStyles = css`
 		${TextColor[theme]}
 		${styles}
+		${applyColor} 
+		${applySize} 
+		${applyFontFamily} 
 	`;
 
 	if (as === 'p') {

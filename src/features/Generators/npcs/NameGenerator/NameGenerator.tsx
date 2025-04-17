@@ -1,9 +1,12 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 
 import IconName from '../../../../assets/images/icons/icon-name.png';
-import { AppButton, AppButtonDefaultIcon, AppButtonInnerContent } from '../../../../components/AppButton';
-import { Typography } from '../../../../components/Typography';
-import { Colors, ToastDuration } from '../../../../config';
+import {
+	AppButton,
+	AppButtonDefaultIcon,
+	AppButtonInnerContent,
+} from '../../../../components/AppButton';
+import { ToastDuration } from '../../../../config';
 import { LanguagesContext } from '../../../../contexts';
 import { useNotification } from '../../../../hooks';
 
@@ -12,6 +15,8 @@ import { getName } from './functions';
 export const NameGenerator = () => {
 	const { getText, language } = useContext(LanguagesContext);
 	const { notify } = useNotification();
+
+	const text = useMemo(() => getText('Random Name'), [getText]);
 
 	const generateRandomName = () => {
 		const name = getName({ language });
@@ -29,12 +34,9 @@ export const NameGenerator = () => {
 	};
 
 	return (
-		<AppButton glossy={true} onClick={generateRandomName}>
+		<AppButton glossy={true} onClick={generateRandomName} text={text}>
 			<AppButtonInnerContent>
-					<AppButtonDefaultIcon src={IconName} alt={getText('Random Name')} />
-			<Typography styles={{ color: Colors.white }}>
-				{getText('Random Name')}
-			</Typography>
+				<AppButtonDefaultIcon src={IconName} alt={text} />
 			</AppButtonInnerContent>
 		</AppButton>
 	);

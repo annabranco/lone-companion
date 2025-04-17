@@ -1,8 +1,11 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 
 import IconRunes from '../../assets/images/icons/icon-runes.png';
 import { AppButton } from '../../components/AppButton';
-import { AppButtonDefaultIcon, AppButtonInnerContent } from '../../components/AppButton/styled';
+import {
+	AppButtonDefaultIcon,
+	AppButtonInnerContent,
+} from '../../components/AppButton/styled';
 import { LanguagesContext } from '../../contexts';
 import { useOracle } from '../../hooks';
 
@@ -16,6 +19,8 @@ export const Oracle = () => {
 	} = useOracle();
 	const { getText } = useContext(LanguagesContext);
 
+	const text = useMemo(() => getText('Ask the Oracle'), [getText]);
+
 	return (
 		<>
 			<OracleComponent
@@ -25,11 +30,9 @@ export const Oracle = () => {
 				toggleOracle={toggleOracle}
 			/>
 
-			<AppButton glossy={true} onClick={toggleOracle}>
+			<AppButton glossy={true} onClick={toggleOracle} text={text}>
 				<AppButtonInnerContent>
-					<AppButtonDefaultIcon src={IconRunes} alt={getText('Ask the Oracle')} />
-					{getText('Ask the Oracle')}
-
+					<AppButtonDefaultIcon src={IconRunes} alt={text} />
 				</AppButtonInnerContent>
 			</AppButton>
 		</>

@@ -1,20 +1,22 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 
 import IconNpc from '../../../../assets/images/icons/icon-npc-random.jpg';
 import { AppButton } from '../../../../components/AppButton';
-import { AppButtonDefaultIcon, AppButtonInnerContent } from '../../../../components/AppButton/styled';
+import {
+	AppButtonDefaultIcon,
+	AppButtonInnerContent,
+} from '../../../../components/AppButton/styled';
 import { ToastDuration } from '../../../../config';
 import { LanguagesContext } from '../../../../contexts';
 import { useNotification } from '../../../../hooks';
 
 import { GeneratedContentType } from '../../types';
 import { generateNPC } from './functions';
-;
-
-
 export const NpcGenerator = () => {
 	const { getText, language } = useContext(LanguagesContext);
 	const { notify } = useNotification();
+
+	const text = useMemo(() => getText('Random NPC'), [getText]);
 
 	const getNPC = () => {
 		const npc = generateNPC({ language });
@@ -36,11 +38,9 @@ export const NpcGenerator = () => {
 
 	return (
 		<>
-			<AppButton glossy={true} onClick={getNPC}>
+			<AppButton glossy={true} onClick={getNPC} text={text}>
 				<AppButtonInnerContent>
-					<AppButtonDefaultIcon src={IconNpc} alt={getText('Random NPC')} />
-					{getText('Random NPC')}
-
+					<AppButtonDefaultIcon src={IconNpc} alt={text} />
 				</AppButtonInnerContent>
 			</AppButton>
 		</>
